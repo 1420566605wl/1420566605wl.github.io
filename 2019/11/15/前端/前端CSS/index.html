@@ -1,0 +1,2105 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="前端CSS, 多走几步">
+    <meta name="description" content="多走几步">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>前端CSS | 多走几步</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="多走几步" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">多走几步</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags/%E5%AD%A6%E4%B9%A0/" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">多走几步</div>
+        <div class="logo-desc">
+            
+            多走几步
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags/%E5%AD%A6%E4%B9%A0/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">前端CSS</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">学习</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                                <span class="chip bg-color">技术</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-11-15
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    10.2k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="CSS介绍"><a href="#CSS介绍" class="headerlink" title="CSS介绍"></a>CSS介绍</h1><p>　　CSS（<strong>C</strong>ascading <strong>S</strong>tyle <strong>S</strong>heet，层叠样式表)定义<strong>如何显示</strong>HTML元素，给HTML设置样式，让它更加美观。</p>
+<p>　　当浏览器读到一个样式表，它就会按照这个样式表来对文档进行格式化（渲染）。</p>
+<h1 id="CSS语法"><a href="#CSS语法" class="headerlink" title="CSS语法"></a>CSS语法</h1><h2 id="CSS实例"><a href="#CSS实例" class="headerlink" title="　　CSS实例"></a>　　CSS实例</h2><p>　　　　每个CSS样式由两个组成部分：选择器和声明。声明又包括属性和属性值。每个声明之后用分号结束。</p>
+<p>　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/867021-20171215115756808-909989248.png" alt="img"></p>
+<h2 id="CSS注释"><a href="#CSS注释" class="headerlink" title="　　CSS注释"></a>　　CSS注释</h2><pre><code>/*这是注释*/</code></pre>
+<p>　　　　</p>
+<h1 id="CSS的几种引入方式"><a href="#CSS的几种引入方式" class="headerlink" title="CSS的几种引入方式"></a>CSS的几种引入方式</h1><h2 id="行内样式"><a href="#行内样式" class="headerlink" title="　　行内样式"></a>　　行内样式</h2><p>　　　　行内式是在标记的style属性中设定CSS样式。不推荐大规模使用。</p>
+<pre><code>&lt;p style="color: red"&gt;Hello world.&lt;/p&gt;</code></pre>
+<h2 id="内部样式"><a href="#内部样式" class="headerlink" title="　　内部样式"></a>　　内部样式</h2><p>　　　　嵌入式是将CSS样式集中写在网页的标签对的<style></style>标签对中。格式如下：</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></p>
+<pre><code>&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;style&gt;
+        p{
+            background-color: #2b99ff;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h2 id="外部样式"><a href="#外部样式" class="headerlink" title="　　外部样式"></a>　　外部样式</h2><p>　　　　外部样式就是将css写在一个单独的文件中，然后在页面进行引入即可。推荐使用此方式。</p>
+<pre><code>&lt;link href="mystyle.css" rel="stylesheet" type="text/css"/&gt;  #现在写的这个.css文件是和你的html是一个目录下，如果不是一个目录，href里面记得写上这个.css文件的路径</code></pre>
+<h1 id="文件内容是-："><a href="#文件内容是-：" class="headerlink" title="　　　　文件内容是 ："></a>　　　　文件内容是 ：</h1><p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<pre><code>p {color:blue;}
+/*注释*/
+
+注释一般都使用来描述后面这段css代码是给页面上哪一个板块用的
+/*标题样式*/
+xxxxx
+
+/*个人中心设置*/</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h1 id="CSS选择器（如何找到对应的标签）"><a href="#CSS选择器（如何找到对应的标签）" class="headerlink" title="CSS选择器（如何找到对应的标签）"></a>CSS选择器（如何找到对应的标签）</h1><h2 id="基本选择器"><a href="#基本选择器" class="headerlink" title="　　基本选择器"></a>　　基本选择器</h2><h3 id="元素选择器（标签名）"><a href="#元素选择器（标签名）" class="headerlink" title="　　　　元素选择器（标签名）"></a>　　　　元素选择器（标签名）</h3><pre><code>p {color: "red";}</code></pre>
+<p>　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207154535392-1283987175.png" alt="img"></p>
+<p>　　那如果有多个p标签，我像把其中一个p标签中的文字颜色改为红了，或者背景改成红色怎么办？看下面的选择器：</p>
+<h3 id="ID选择器"><a href="#ID选择器" class="headerlink" title="　　　　ID选择器"></a>　　　　ID选择器</h3><pre><code>#i1 {   #号表示id属性，后面的i1表示id属性的值
+  background-color: red;  #背景色，color:red是字体颜色，这个简单知道一下就行了，明天我们再学这些具体的css样式
+}</code></pre>
+<h3 id=""><a href="#" class="headerlink" title="　　"></a>　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207153602491-33262802.png" alt="img"></h3><p>　　id不能重复，如果想给多个p标签同时添加一个css样式怎么办？挨个添加id属性吗？并且，如果是不同的标签，但是他们的css样式要一样，怎么办？看下面</p>
+<h3 id="类选择器"><a href="#类选择器" class="headerlink" title="　　类选择器"></a>　　类选择器</h3><pre><code>.c1 {  .表示class属性，c1表示class的值
+  font-size: 14px;
+}p.c1 {  找到所有p标签里面含有class属性的值为c1的p标签，注意他俩之间没有空格昂  color: red;}</code></pre>
+<p>　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207154821357-384846956.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207154839045-1988394987.png" alt="img"></p>
+<p>　　　　效果：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207154850682-1189151070.png" alt="img"></p>
+<p>　　注意：</p>
+<p>　　　　　　样式类名不要用数字开头（有的浏览器不认）。</p>
+<p>　　　　　　标签中的class属性如果有多个，要用空格分隔。</p>
+<p>　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207155053020-334897599.png" alt="img"></p>
+<p>　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207155038265-444493330.png" alt="img"></p>
+<p> 　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207155201914-1801640927.png" alt="img"></p>
+<h3 id="通用选择器"><a href="#通用选择器" class="headerlink" title="　　　　通用选择器"></a>　　　　通用选择器</h3><pre><code>* {  *表示所有的标签
+  color: white;
+}</code></pre>
+<p>　　　　来吧，大家练习一波，然后我们重新创建一个html文件，再学下面的内容。</p>
+<h2 id="组合选择器"><a href="#组合选择器" class="headerlink" title="　　组合选择器"></a>　　组合选择器</h2><h3 id="后代选择器（子子孙孙）"><a href="#后代选择器（子子孙孙）" class="headerlink" title="　　　　后代选择器（子子孙孙）"></a>　　　　后代选择器（子子孙孙）</h3><pre><code>/*li内部的a标签设置字体颜色*/
+li a {
+  color: green;
+}</code></pre>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207163748136-1783319719.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207163802796-1673302120.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207163826196-470686187.png" alt="img"></p>
+<h3 id="儿子选择器（只找儿子）"><a href="#儿子选择器（只找儿子）" class="headerlink" title="　　　　儿子选择器（只找儿子）"></a>　　　　儿子选择器（只找儿子）</h3><pre><code>/*选择所有父级是 &lt;div&gt; 元素的 &lt;p&gt; 元素*/
+div&gt;p {
+  font-family: "Arial Black", arial-black, cursive;
+}</code></pre>
+<h3 id="毗邻选择器"><a href="#毗邻选择器" class="headerlink" title="　　　　毗邻选择器"></a>　　　　毗邻选择器</h3><pre><code>/*选择所有紧接着&lt;div&gt;元素之后的&lt;p&gt;元素*/
+div+p {
+  margin: 5px;
+}</code></pre>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207164109814-1949794423.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207163955780-1105802712.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207164121448-1753236300.png" alt="img"></p>
+<p> 　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207164331412-1198604198.png" alt="img"></p>
+<h3 id="弟弟选择器"><a href="#弟弟选择器" class="headerlink" title="　　　　弟弟选择器"></a>　　　　弟弟选择器</h3><pre><code>/*i1后面所有的兄弟p标签*/
+#i1~p {
+  border: 2px solid royalblue;
+}</code></pre>
+<p>　　　</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207164314772-187291471.png" alt="img"></p>
+<p>　　　　找id为d2的div标签下的兄弟标签中的p标签，往下找</p>
+<p> 　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207164521198-435909979.png" alt="img"></p>
+<p>　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207164255117-1940454691.png" alt="img"></p>
+<p> 　　来吧，兄弟们，练习一波，然后我们再重新创建一个html文件，再学下面的内容。</p>
+<h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="　　属性选择器"></a>　　属性选择器</h2><p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<pre><code>/*用于选取带有指定属性的元素。*/
+p[title] {
+  color: red;
+}
+/*用于选取带有指定属性和值的元素。*/
+p[title="213"] {
+  color: green;
+}</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p> 　　通过属性或者属性的值来查找，这个属性是我们自己定义的，不是id啊class啊这种html自带的属性</p>
+<p>　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207172603956-754637152.png" alt="img"></p>
+<p>　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207172623777-933352862.png" alt="img"></p>
+<p>　　每个标签里面都可以可一个title属性，这个属性就是鼠标移动到这个标签上，就显示出一个title属性的值</p>
+<p>　　还有下面这些不太常用的，正则的写法，属性值以什么开头，以什么结尾等</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<pre><code>/*找到所有title属性以hello开头的元素*/
+[title^="hello"] {
+  color: red;
+}
+
+/*找到所有title属性以hello结尾的元素*/
+[title$="hello"] {
+  color: yellow;
+}
+
+/*找到所有title属性中包含（字符串包含）hello的元素*/
+[title*="hello"] {
+  color: red;
+}
+
+/*找到所有title属性(有多个值或值以空格分割)中有一个值为hello的元素：*/
+[title~="hello"] {
+  color: green;
+}</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p> 　　　　看示例：title*=’hello’</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207173144383-514496721.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207173216433-1105814886.png" alt="img"></p>
+<p>　　　　看示例：title~=’hello‘</p>
+<p> 　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207173520306-1036032135.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207173357177-980916999.png" alt="img"></p>
+<p>　　　　上面这个属性选择器不常用，简单了解一下就行了。</p>
+<h3 id="分组和嵌套"><a href="#分组和嵌套" class="headerlink" title="　　分组和嵌套"></a>　　分组和嵌套</h3><h3 id="分组（多个选择器逗号分隔）"><a href="#分组（多个选择器逗号分隔）" class="headerlink" title="　　　　分组（多个选择器逗号分隔）"></a>　　　　分组（多个选择器逗号分隔）</h3><p>　　　　　　当多个元素的样式相同的时候，我们没有必要重复地为每个元素都设置样式，我们可以通过在多个选择器之间使用逗号分隔的分组选择器来统一设置元素样式。 </p>
+<p>　　　　　　例如：</p>
+<pre><code>div, p {
+  color: red;
+}</code></pre>
+<p>　　　　　　上面的代码为div标签和p标签统一设置字体为红色。</p>
+<p>　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207173824845-656763365.png" alt="img"></p>
+<p>　　　　　　通常，我们会分两行来写，更清晰:</p>
+<pre><code>div, #如果你这样写，千万别忘了逗号，不然就成了div下的子子孙孙里面找p标签
+p {
+  color: red;
+}</code></pre>
+<h3 id="嵌套"><a href="#嵌套" class="headerlink" title="　　　　嵌套"></a>　　　　嵌套</h3><p>　　　　　　多种选择器可以混合起来使用，比如：.c1类内部所有p标签设置字体颜色为红色。</p>
+<pre><code>.c1 p {
+  color: red;
+}</code></pre>
+<h2 id="伪类选择器（比较特殊，CSS3版本新加的特性）"><a href="#伪类选择器（比较特殊，CSS3版本新加的特性）" class="headerlink" title="　　伪类选择器（比较特殊，CSS3版本新加的特性）"></a>　　伪类选择器（比较特殊，CSS3版本新加的特性）</h2><p>　　　　可以根据标签的不同状态再进行进一步的区分，比如一个a标签，点击前，点击时，点击后有不同的三个状态。</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></p>
+<pre><code>/* 未访问的链接 */
+a:link {
+  color: #FF0000
+}
+
+/* 已访问的链接 */
+a:visited {
+  color: #00FF00
+} 
+
+/* 鼠标移动到链接上 */  这个用的比较多
+a:hover {
+  color: #FF00FF
+} 
+
+/* 选定的链接 */ 就是鼠标点下去还没有抬起来的那个瞬间，可以让它变颜色
+a:active {
+  color: #0000FF
+}
+
+/*input输入框获取焦点时样式*/
+input:focus {   #input默认的有个样式，鼠标点进去的时候，input框会变浅蓝色的那么个感觉
+  #outline: none;
+  background-color: #eee; #框里面的背景色}</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h2 id="伪元素选择器（通过css来造标签，不推荐使用）"><a href="#伪元素选择器（通过css来造标签，不推荐使用）" class="headerlink" title="　　伪元素选择器（通过css来造标签，不推荐使用）"></a>　　伪元素选择器（通过css来造标签，不推荐使用）</h2><h3 id="first-letter"><a href="#first-letter" class="headerlink" title="　　　　first-letter"></a>　　　　first-letter</h3><p>　　　　　　常用的给首字母设置特殊样式：</p>
+<pre><code>
+#将p标签中的文本的第一个字变颜色变大小
+p:first-letter { 
+  font-size: 48px;
+  color: red;
+}</code></pre>
+<h3 id="-1"><a href="#-1" class="headerlink" title="　　　　"></a>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207205139328-625682764.png" alt="img"></h3><h3 id="before"><a href="#before" class="headerlink" title="　　　　before"></a>　　　　before</h3><pre><code>/*在每个&lt;p&gt;元素之前插入内容*/
+p:before {
+  content:"*";
+  color:red;
+}</code></pre>
+<h3 id="-2"><a href="#-2" class="headerlink" title="　　　　"></a>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207205234128-599696388.png" alt="img"></h3><h3 id="after"><a href="#after" class="headerlink" title="　　　　after"></a>　　　　after</h3><pre><code>/*在每个&lt;p&gt;元素之后插入内容*/
+p:after {
+  content:"[?]";
+  color:blue;
+} </code></pre>
+<p>　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207205335813-740898590.png" alt="img"></p>
+<p>　　　　　　上面的这些前后添加的文本内容在页面上是无法选中的，正常的标签或者文字是可以选中的。</p>
+<p>　　　　　　before和after多用于清除浮动。后面讲</p>
+<h2 id="选择器的优先级（难点）"><a href="#选择器的优先级（难点）" class="headerlink" title="　　选择器的优先级（难点）"></a>　　选择器的优先级（难点）</h2><h3 id="CSS继承"><a href="#CSS继承" class="headerlink" title="　　　　CSS继承"></a>　　　　CSS继承</h3><p>　　　　　　我们通过上面的学习可以发现，我们可以通过很多种选择器来选择标签，如果有不同的选择器选中了相同的标签，并且赋予了不同的css样式，那么该按照哪个css样式来进行渲染呢？首要浏览器拿到我们给他的HTML文件的时候，它是从上到下加载我们的文件内容的，这也是为什么你会先看到head标签里面的内容，比如那个title标签。再看下面的例子：我在style里面写了两个#p1并且设置了不同的css样式，还有一个10.css文件，文件里面也写了一个#p1，对应一个其他的css样式，最后页面渲染的时候是选择的最后一个link那个文件中的#p1对应的那个css样式来渲染的，是因为按照顺序加载导致的，一个把一个覆盖了</p>
+<p>　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207210600224-118716218.png" alt="img"></p>
+<p>　　　　　　10.css文件里的内容：</p>
+<p>　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207210830054-1277465540.png" alt="img"></p>
+<p>　　　　　　最终效果：为蓝色</p>
+<p>　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207210922975-606064073.png" alt="img"></p>
+<p>　　　　　　总结：当选择器相同的时候，按照顺序来看css样式，谁最后就按照谁渲染。那如果是不同的选择器的时候呢？就要学习我们下面的优先级了，首先看一下继承：</p>
+<p>　　　　　　继承是CSS的一个主要特征，它是依赖于祖先-后代的关系的。继承是一种机制，它允许样式不仅可以应用于某个特定的元素，还可以应用于它的后代。例如一个body定义了的字体颜色值也会应用到段落的文本中。</p>
+<pre><code>body {
+  color: red;
+}</code></pre>
+<p>　　　　　　此时页面上所有标签都会继承body的字体颜色。然而CSS继承性的权重是非常低的，是比普通元素的权重还要低的，他的权重是0。</p>
+<p>　　　　　　我们只要给对应的标签设置字体颜色就可覆盖掉它继承的样式。</p>
+<pre><code>p {
+  color: green;
+}</code></pre>
+<p>　　　　　　此外，继承是CSS重要的一部分，我们甚至不用去考虑它为什么能够这样，但CSS继承也是有限制的。有一些属性不能被继承，如：border, margin, padding, background等。</p>
+<h3 id="选择器的优先级"><a href="#选择器的优先级" class="headerlink" title="　　选择器的优先级"></a>　　选择器的优先级</h3><p>　　　　我们上面学了很多的选择器，也就是说在一个HTML页面中有很多种方式找到一个元素并且为其设置样式，那浏览器根据什么来决定应该应用哪个样式呢？</p>
+<p>　　　　其实是按照不同选择器的权重来决定的，具体的选择器权重计算方式如下图：</p>
+<p>　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/867021-20180305155201408-1680872107.png" alt="img"></p>
+<p>　　　　注：内联样式的意思是把css样式写在标签里面：</p>
+<p>　　　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207211608760-1800506928.png" alt="img"></p>
+<p>　　　　　　　　其他的权重：但是有一点说一下，就是上面那个权重计算永不进位的意思是：我们看上面知道class的权重是10，但是即便是11个class相加起来大于id的100权重，也还是id生效，也就是说，不会进位，class组合起来也无法超过id的权重</p>
+<p>　　　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207211708586-1859067719.png" alt="img"></p>
+<p>　　　　除此之外还可以通过添加 !important方式来强制让样式生效，不讲道理的操作，但并不推荐使用。因为如果过多的使用!important会使样式文件混乱不易维护，使用方法：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181207212107609-1208258871.png" alt="img"></p>
+<p>　　　　<strong>万不得已可以使用!important</strong></p>
+<p>　　好了同志们，练习一下吧，没啥捷径，就是多练。。。练习一下在继续学习下面的内容~~</p>
+<h1 id="CSS属性相关"><a href="#CSS属性相关" class="headerlink" title="CSS属性相关"></a>CSS属性相关</h1><h2 id="宽和高"><a href="#宽和高" class="headerlink" title="　　宽和高"></a>　　宽和高</h2><p>　　　　width属性可以为元素设置宽度。</p>
+<p>　　　　height属性可以为元素设置高度。</p>
+<p>　　　　块级标签才能设置宽度，内联标签的宽度由内容来决定。</p>
+<h2 id="字体属性"><a href="#字体属性" class="headerlink" title="　　字体属性"></a>　　字体属性</h2><h3 id="文字字体"><a href="#文字字体" class="headerlink" title="　　　　文字字体"></a>　　　　文字字体</h3><p>　　　　　　font-family可以把多个字体名称作为一个“回退”系统来保存。如果浏览器不支持第一个字体，则会尝试下一个。浏览器会使用它可识别的第一个值。</p>
+<p>　　　　　　简单实例：</p>
+<pre><code>body {
+  font-family: "Microsoft Yahei", "微软雅黑", "Arial", sans-serif
+}</code></pre>
+<h3 id="字体大小"><a href="#字体大小" class="headerlink" title="　　　　字体大小"></a>　　　　字体大小</h3><pre><code>p {
+  font-size: 14px;
+}</code></pre>
+<p>　　　　　　如果设置成inherit表示继承父元素的字体大小值。</p>
+<h3 id="字重（粗细）"><a href="#字重（粗细）" class="headerlink" title="　　　　字重（粗细）"></a>　　　　字重（粗细）</h3><p>　　　　　　font-weight用来设置字体的字重（粗细）。</p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">normal</td>
+<td align="center">默认值，标准粗细</td>
+</tr>
+<tr>
+<td align="center">bold</td>
+<td align="center">粗体</td>
+</tr>
+<tr>
+<td align="center">bolder</td>
+<td align="center">更粗</td>
+</tr>
+<tr>
+<td align="center">lighter</td>
+<td align="center">更细</td>
+</tr>
+<tr>
+<td align="center">100~900</td>
+<td align="center">设置具体粗细，400等同于normal，而700等同于bold</td>
+</tr>
+<tr>
+<td align="center">inherit</td>
+<td align="center">继承父元素字体的粗细值</td>
+</tr>
+</tbody></table>
+<h2 id="文本颜色"><a href="#文本颜色" class="headerlink" title="　　文本颜色"></a>　　文本颜色</h2><p>　　　　　　颜色属性被用来设置文字的颜色。</p>
+<p>　　　　　　颜色是通过CSS最经常的指定：</p>
+<p>　　　　　　　　1.十六进制值 - 如: <strong>＃</strong>FF0000 #前两位是表示红，中间两位表示绿，后面两位表示蓝，F是最高级别，0表示最低级别（无色）</p>
+<p>　　　　　　　　2.一个RGB值 - 如: RGB(255,0,0) #红绿蓝就是RGB的意思，第一个参数是红，最高255，最低0</p>
+<p>　　　　　　　　3.颜色的名称 - 如:  red</p>
+<p>　　　　　　还有rgba(255,0,0,0.3)，第四个值为alpha, 指定了色彩的透明度/不透明度，它的范围为0.0到1.0之间。</p>
+<h2 id="文字属性"><a href="#文字属性" class="headerlink" title="　　文字属性"></a>　　文字属性</h2><h3 id="文字对齐"><a href="#文字对齐" class="headerlink" title="　　　　文字对齐"></a>　　　　文字对齐</h3><p>　　　　　　text-align 属性规定元素中的文本的水平对齐方式。</p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">left</td>
+<td align="center">左边对齐 默认值</td>
+</tr>
+<tr>
+<td align="center">right</td>
+<td align="center">右对齐</td>
+</tr>
+<tr>
+<td align="center">center</td>
+<td align="center">居中对齐</td>
+</tr>
+<tr>
+<td align="center">justify</td>
+<td align="center">两端对齐</td>
+</tr>
+</tbody></table>
+<h3 id="文字装饰"><a href="#文字装饰" class="headerlink" title="　　　　文字装饰"></a>　　　　文字装饰</h3><p>　　　　　　text-decoration 属性用来给文字添加特殊效果。</p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">none</td>
+<td align="center">默认。定义标准的文本。</td>
+</tr>
+<tr>
+<td align="center">underline</td>
+<td align="center">定义文本下的一条线。</td>
+</tr>
+<tr>
+<td align="center">overline</td>
+<td align="center">定义文本上的一条线。</td>
+</tr>
+<tr>
+<td align="center">line-through</td>
+<td align="center">定义穿过文本下的一条线。</td>
+</tr>
+<tr>
+<td align="center">inherit</td>
+<td align="center">继承父元素的text-decoration属性的值。</td>
+</tr>
+</tbody></table>
+<p>　　　　　　常用的为去掉a标签默认的自划线：</p>
+<pre><code>a {
+  text-decoration: none;
+}</code></pre>
+<h3 id="首行缩进"><a href="#首行缩进" class="headerlink" title="　　　　首行缩进"></a>　　　　首行缩进</h3><p>　　　　　　将段落的第一行缩进 32像素：</p>
+<pre><code>p {
+  text-indent: 32px; #首行缩进两个字符，因为我记得一个字在页面上的默认大小为16px
+}</code></pre>
+<h2 id="背景属性"><a href="#背景属性" class="headerlink" title="　　背景属性"></a>　　背景属性</h2><p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></p>
+<pre><code>/*背景颜色*/background-color: red;
+/*背景图片*/
+background-image: url('1.jpg');  #url里面是图片路径，如果和你的html文件在一个目录下，使用这种相对路径就行了，来个葫芦娃图片试一下
+background-repeat: no-repeat; 
+/* 背景重复 repeat(默认):背景图片沿着x轴和y轴重复平铺，铺满整个包裹它的标签 repeat-x：背景图片只在水平方向上平铺 repeat-y：背景图片只在垂直方向上平铺 no-repeat：背景图片不平铺*/
+
+/*背景位置*/
+background-position: right top;/*background-position: 200px 200px;*/ #以前大家都用雪碧图，就是将很多的网页上需要的小图片组合成一个大图，用这个图中哪个位置的小图片，就通过这个参数来调整，看下面的示例操作，现在很少用这个了</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208114700748-1260644052.png" alt="img">注意，qq截图的时候可以给你显示像素，这个是200px*200px</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208115339916-1043227934.png" alt="img"></p>
+<p>　　　　下面是浏览器的坐标系：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208114930964-1784552847.png" alt="img"></p>
+<p> 　　　　no-repeat  和  right top：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208115608776-1350296366.png" alt="img"></p>
+<p>　　　　效果：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208115443003-883153296.png" alt="img"></p>
+<p> 　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208115537736-1122010862.png" alt="img"></p>
+<p>　　　　background-position：200px 200px；这种参数的示例：</p>
+<p>　　　　在抽屉上还可以找到这个图片：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208120318062-1067652173.png" alt="img"></p>
+<p>　　　　然后：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208120413524-669062496.png" alt="img"></p>
+<p>　　　　你就会看到它：好多个小图片组成的</p>
+<p> 　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208120443079-1842065687.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208120535986-216094331.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208120642285-634482278.png" alt="img"></p>
+<p>　　　　那么有同学会疑问，为什么要将这些小图片做成一个大图呢？因为其实页面在加载到img标签之后，会单独的往后端发请求，来请求这个图，如果小图很多的话，页面要发好多个请求，那么页面加载的就慢，所以放到一个大图上，每个用这个大图上面的小图的地方，img里面的url都指向这个一个图片的url，这样加载就很快了，因为只需要请求一次，你的网页就拿到了这个图片，其他的请求都可以直接用这个图，而不需要多次请求这个图了，然后通过这个background-position的值来调整。</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208121155458-936185248.png" alt="img"></p>
+<p>　　　　点击小灯泡的第一个，就看到效果了，自动帮你优化写法，这个小灯泡就是pycharm帮你提供的一些帮助吧算是</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208121330646-252034880.png" alt="img"></p>
+<p>　　　　</p>
+<p>　　　　支持简写：</p>
+<pre><code>background:#ffffff url('1.png') no-repeat right top;</code></pre>
+<p>　　　　使用背景图片的一个常见案例就是很多网站会把很多小图标放在一张图片上，然后根据位置去显示图片。减少频繁的图片请求，就是我们刚才说的雪碧图。</p>
+<p><a target="_blank" rel="noopener" href="http://www.w3school.com.cn/css/css_background.asp"> 参考链接点我</a></p>
+<p>　　　　一个有趣的例子：鼠标滚动但是背景不动，就是最近发现的，很多电商都在这么搞，你们看过这种效果没有。下面是我模仿着写的一个小例子</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/ExpandedBlockStart.gif" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+    &lt;title&gt;滚动背景图示例&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+        }
+        .box {
+            width: 100%;  #凡是这种使用百分比的，都是按照你父标签的宽度的百分之多少来显示
+            height: 500px;
+            background: url("https://www.luffycity.com/static/img/width-bank.1c9d1b0.png") no-repeat center center; #这个图片好像没有了，自己找一个网上的图片，把这个url路径换一下，可以到摄图网去看看，国内免费的一个图片网站
+            background-attachment: fixed;  #就是这个属性，让你的背景图片固定住的意思，attachment是附属、依附的意思
+        }
+        .d1 {
+            height: 500px;
+            background-color: tomato;
+        }
+        .d2 {
+            height: 500px;
+            background-color: steelblue;
+        }
+        .d3 {
+            height: 500px;
+            background-color: mediumorchid;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="d1"&gt;&lt;/div&gt;
+    &lt;div class="box"&gt;&lt;/div&gt;
+    &lt;div class="d2"&gt;&lt;/div&gt;
+    &lt;div class="d3"&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h2 id="边框"><a href="#边框" class="headerlink" title="　　边框"></a>　　边框</h2><p>　　　　边框属性 </p>
+<p>　　　　　　1.border-width  宽度</p>
+<p>　　　　　　2.border-style   样式</p>
+<p>　　　　　　3.border-color   颜色</p>
+<pre><code>#i1 {
+  border-width: 2px;  
+  border-style: solid;
+  border-color: red;
+}</code></pre>
+<p>　　　　通常使用简写方式：</p>
+<pre><code>#i1 {
+  border: 2px solid red;
+}</code></pre>
+<p>　　　　边框样式</p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">none</td>
+<td align="center">无边框。</td>
+</tr>
+<tr>
+<td align="center">dotted</td>
+<td align="center">点状虚线边框。</td>
+</tr>
+<tr>
+<td align="center">dashed</td>
+<td align="center">矩形虚线边框。</td>
+</tr>
+<tr>
+<td align="center">solid</td>
+<td align="center">实线边框。</td>
+</tr>
+</tbody></table>
+<p>　　　　除了可以统一设置边框外还可以单独为某一个边框设置样式，如下所示：</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></p>
+<pre><code>#i1 {
+  border-top-style:dotted;
+  border-top-color: red;
+  border-right-style:solid;
+  border-bottom-style:dotted;
+  border-left-style:none;
+}</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　　　单独设置一下左边的边框：</p>
+<h2 id="-3"><a href="#-3" class="headerlink" title="　　　"></a>　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208130046585-568704532.png" alt="img"></h2><p>　　　　只显示左边的边框：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208130220100-179622676.png" alt="img"></p>
+<p>　　　　</p>
+<h2 id="border-radius"><a href="#border-radius" class="headerlink" title="　　border-radius"></a>　　border-radius</h2><p>　　　　用这个属性能实现圆角边框的效果。</p>
+<p>　　　　将border-radius设置为长或高的一半即可得到一个圆形。</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208130319771-1963248685.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208130348521-828431269.png" alt="img"></p>
+<p>　　　　效果：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208130359972-393205540.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208130446466-1069777318.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208130529621-2048119615.png" alt="img"></p>
+<p>　　　　还可在调试窗口调整颜色来测试（调试窗口：页面上右键–检查，或者f12）</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208130739887-2037903737.png" alt="img"></p>
+<p>　　　　调整好之后，把调整后的值复制到我们的css属性里面就行了</p>
+<p>　　　　还可以通过hover来设置鼠标移动上去变颜色：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208130853437-793837491.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208131049951-1399568454.png" alt="img"></p>
+<p>　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208131143872-585826999.png" alt="img"></p>
+<p>　　　　　　你会看到之前的background-color有了一个横线，这是不生效的效果，因为你查看的hover的样式</p>
+<p>　　　　　　还可以看到class</p>
+<p>　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208131339585-37060984.png" alt="img"></p>
+<p>　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208131439471-788285188.png" alt="img"></p>
+<p>　　　　　　把对勾去了，这个class的样式就不显示了</p>
+<p>　　　　　　通过调试窗口还可以玩一个神奇的东西：document.body.contentEditable=true</p>
+<p>　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208131857155-1100473108.png" alt="img"></p>
+<p>　　　　　　不用ps就能够改了：注意昂，只能改当前页面的显示内容，改不了真实的值，并且页面一刷新，这个指令就失效了，需要重新输入</p>
+<p>　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208131945592-520369186.png" alt="img"></p>
+<h2 id="display属性"><a href="#display属性" class="headerlink" title="　　display属性"></a>　　display属性</h2><p>　　　　用于控制HTML元素的显示效果。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>display:”none”</td>
+<td>HTML文档中元素存在，但是在浏览器中不显示。一般用于配合JavaScript代码使用。</td>
+</tr>
+<tr>
+<td>display:”block”</td>
+<td>默认占满整个页面宽度，如果设置了指定宽度，则会用margin填充剩下的部分。</td>
+</tr>
+<tr>
+<td>display:”inline”</td>
+<td>按行内元素显示，此时再设置元素的width、height、margin-top、margin-bottom和float属性都不会有什么影响。</td>
+</tr>
+<tr>
+<td>display:”inline-block”</td>
+<td>使元素同时具有行内元素和块级元素的特点。</td>
+</tr>
+</tbody></table>
+<p>　　　　<strong>display:”none”与visibility:hidden的区别：</strong></p>
+<p>　　　　visibility:hidden: 可以隐藏某个元素，但隐藏的元素仍需占用与未隐藏之前一样的空间。也就是说，该元素虽然被隐藏了，但仍然会影响布局。</p>
+<p>　　　　display:none: 可以隐藏某个元素，且隐藏的元素不会占用任何空间。也就是说，该元素不但被隐藏了，而且该元素原本占用的空间也会从页面布局中消失。</p>
+<p>　　　　教大家一些创建标签时的简写方法：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208132411366-1950884846.png" alt="img"></p>
+<p>　　　　看效果：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208132429454-611609661.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208132458895-1321890680.png" alt="img"></p>
+<p>　　　　或者简写：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208132520526-1708123786.png" alt="img"></p>
+<p>　　　　然后按一下tab键：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208132536272-631750425.png" alt="img"></p>
+<p>　　　　然后看div里面套一个a标签</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208132555566-1850944602.png" alt="img"></p>
+<p>　　　　然后一回车</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208132614543-202629946.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208132630741-366791832.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208132637871-9049468.png" alt="img"></p>
+<p>　　　　这些都是编辑器帮你提供的快捷方式。有兴趣的同学可以去研究研究，有好多，一个nb的前端工程师，写一个页面非常快速</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208132742204-277504008.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208132749847-856807129.png" alt="img"></p>
+<p>　　　　在加一个$符号：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208132815647-2079252021.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208132828931-306589089.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208132932648-134814913.png" alt="img"></p>
+<p>　　　　按delete删除：</p>
+<p>　　　　一下就删除了三个了：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208132955679-189701953.png" alt="img"></p>
+<p> 　　注意一点昂：块级标签不管你设置的宽度是多少，都会占用你整个页面宽度的空间，看下面</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208133210004-1162032128.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208133240193-64552318.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208133229686-193235005.png" alt="img"></p>
+<p> 　　　　然后我们看一下display的效果inline-block，高度宽度还可以设置，包含内联和块级标签的属性</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208133359614-778916057.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208133405699-347506321.png" alt="img"></p>
+<p>　　　　还可以通过display：block将内联标签改为块级标签的效果</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208133617134-711758482.png" alt="img"></p>
+<p>　　　　看效果：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208133701377-625991503.png" alt="img"></p>
+<p>　　　　</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208133733567-1485371098.png" alt="img"></p>
+<p>　　　　看效果　　　　</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208133801433-1747288358.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208133816742-1011326105.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208133827281-74574900.png" alt="img"></p>
+<p>　　　　不占用位置，也不显示</p>
+<p>　　　　来吧，大家练习一下，然后再继续学习<del>~</del></p>
+<h2 id="CSS盒子模型"><a href="#CSS盒子模型" class="headerlink" title="　　CSS盒子模型"></a>　　CSS盒子模型</h2><p>　　　　在css里面，每个标签可以称为一个盒子模型，看下面的图：</p>
+<p>　　　　1.<strong>margin</strong>:            外边距：用于控制元素与元素之间的距离；margin的最基本用途就是控制元素周围空间的间隔，从视觉角度上达到相互隔开的目的。</p>
+<p>　　　　2.<strong>padding</strong>:           内边距：用于控制内容与边框之间的距离；   </p>
+<p>　　　　3.<strong>Border</strong>(边框):     围绕在内边距和内容外的边框。</p>
+<p>　　　　4.<strong>Content</strong>(内容):   盒子的内容，显示文本和图像。</p>
+<p>　　　　看图吧：</p>
+<p>　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/867021-20180305155247808-885981996.png" alt="img"></p>
+<h2 id="margin外边距"><a href="#margin外边距" class="headerlink" title="　　margin外边距"></a>　　margin外边距</h2><pre><code>.margin-test {
+  margin-top:5px;
+  margin-right:10px;
+  margin-bottom:15px;
+  margin-left:20px;
+}</code></pre>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208143850401-1536915759.png" alt="img"></p>
+<p>　　　　所以在写css样式的时候，都会先写一个</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208143927238-1291838734.png" alt="img"></p>
+<p>　　　  意思是说，body的上下左右的margin都设置为0.</p>
+<p>　　　　在看一个，如果将上下两个标签都设置了margin是什么效果</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208144815646-1569892898.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208144951666-550373323.png" alt="img"></p>
+<p>　　　　</p>
+<p>　　　　推荐使用简写：</p>
+<pre><code>.margin-test {
+  margin: 5px 10px 15px 20px;
+}</code></pre>
+<p>　　　　顺序：上右下左</p>
+<p>　　　　常见居中：</p>
+<pre><code>.mycenter {
+  margin: 0 auto;  #上下0像素，左右自适应，居中的效果
+}如果你写的是三个：margin: 10px 20px 10px;意思是上为10，左右为20，下为10</code></pre>
+<h2 id="padding内填充"><a href="#padding内填充" class="headerlink" title="　　padding内填充"></a>　　padding内填充</h2><pre><code>.padding-test {
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  padding-left: 20px;
+}</code></pre>
+<p>　　　　推荐使用简写：</p>
+<pre><code>.padding-test {
+  padding: 5px 10px 15px 20px;
+}</code></pre>
+<p>　　　　顺序：上右下左</p>
+<p>　　　　补充padding的常用简写方式：</p>
+<ul>
+<li>提供一个，用于四边；</li>
+<li>提供两个，第一个用于上－下，第二个用于左－右；</li>
+<li>如果提供三个，第一个用于上，第二个用于左－右，第三个用于下；</li>
+<li>提供四个参数值，将按上－右－下－左的顺序作用于四边；</li>
+</ul>
+<p>　　接下来我们来学一下浮动：</p>
+<h2 id="float"><a href="#float" class="headerlink" title="　　float"></a>　　float</h2><p>　　　　在 CSS 中，任何元素都可以浮动。最开始出现浮动这个东西是为了什么呢，记不记得一个word文档里面，插入图片的时候，有一个文字环绕的效果啊：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208145322333-1379807325.png" alt="img"></p>
+<p>　　　　最开始浮动这个东西是想要做上面这种效果用的，现在多数用来做网页布局的。你记不记得很多的网站都是左边一个菜单栏，右边一堆的其他内容啊</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208145621250-118297115.png" alt="img"></p>
+<p>　　　　你看昂：我们如果这样写</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208145732114-1914956797.png" alt="img"></p>
+<p>　　　　看效果：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208145753965-120134027.png" alt="img"></p>
+<p>　　　　那怎么让绿色的这个跑到红色的左边呢？</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208145836254-408000548.png" alt="img"></p>
+<p>　　　　</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208145845674-86898454.png" alt="img"></p>
+<p>　　　　上面是浮动的一个最简单的用法，但是浮动有一个副作用，看：</p>
+<p>　　　　重新创建一个htnl文件，我们写上下面的内容</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208150301858-1376006763.png" alt="img"></p>
+<p>　　　　css样式：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208150316858-565893934.png" alt="img"></p>
+<p>　　　　效果是这样的：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208150105395-576139777.png" alt="img"></p>
+<p>　　　　怎么让下面这个粉色的跑到右边去啊</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208150357134-105858762.png" alt="img"></p>
+<p>　　　　刷新看看效果：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208150155496-1125102331.png" alt="img"></p>
+<p>　　　　发现是不是有问题啊，两个红色的设置了一个往左浮动一个往右浮动，c3那个标签没有设置浮动之后，发现红色的两个虽然浮动了，但是粉色的这个跑上去了，两个红色的压在这个粉色的标签上了。</p>
+<p>　　　　先看这个问题昂：在给c2的div标签加上浮动之前是下面这样的效果：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208150634321-1793677642.png" alt="img"></p>
+<p>　　　　我并没有给c1那个div标签设置高度，但是你发现c1这个div标签是有高度的，这是因为里面两个c2div我设置了高度了，这两个div将c1这个div标签撑起来了</p>
+<p>　　　　当我们加上浮动之后，你再看这个c1的div标签的高度：发现c1这个div的高度没有了，显示的高度是1.99，是因为我给它设置了边框，上下边框加起来正好2px，这里显示了个约等的值，别在意昂</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208150842390-1784398455.png" alt="img"></p>
+<p>　　　　这就看到了浮动的副作用，浮动起来以后脱离了你整个页面文档，然后两个c1的div标签，一个往左靠，一个往右靠，无法撑起自己的父级标签了，也就是那个c1的div标签，那么粉色的c3那个标签就上去了。影响了我们页面的整个布局。</p>
+<p>　　　　我们不想让粉色的这个标签顶上去怎么办，看一下c1这个标签的子标签的高度(内边距+外边距+边框宽度+标签高度)，然后给c1这个父标签的高度设置成这个值，当然是可以的，但是如果两个子标签的高度不相等呢，你按照哪一个来算高度啊，并且将来这样的标签要是很多怎么办，没法算对不对，所以我们一般不用这种方法来解决浮动的问题，看下面我们要学的clear，清除浮动。</p>
+<p>　　　　</p>
+<p>　　　　浮动元素会生成一个块级框，而不论它本身是何种元素。</p>
+<p>　　　　关于浮动的两个特点：</p>
+<ul>
+<li>浮动的框可以向左或向右移动，直到它的外边缘碰到包含框或另一个浮动框的边框为止。</li>
+<li>由于浮动框不在文档的普通流中，所以文档的普通流中的块框表现得就像浮动框不存在一样。</li>
+</ul>
+<h3 id="三种取值"><a href="#三种取值" class="headerlink" title="　　三种取值"></a>　　三种取值</h3><p>　　　　left：向左浮动</p>
+<p>　　　　right：向右浮动</p>
+<p>　　　　none：默认值，不浮动</p>
+<p><a target="_blank" rel="noopener" href="http://www.w3school.com.cn/css/css_positioning_floating.asp">参考示例</a></p>
+<h2 id="clear"><a href="#clear" class="headerlink" title="　　clear"></a>　　clear</h2><p>　　　　clear属性规定元素的哪一侧不允许其他浮动元素。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>left</td>
+<td>在左侧不允许浮动元素。</td>
+</tr>
+<tr>
+<td>right</td>
+<td>在右侧不允许浮动元素。</td>
+</tr>
+<tr>
+<td>both</td>
+<td>在左右两侧均不允许浮动元素。</td>
+</tr>
+<tr>
+<td>none</td>
+<td>默认值。允许浮动元素出现在两侧。</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>规定应该从父元素继承 clear 属性的值。</td>
+</tr>
+</tbody></table>
+<p>　　　　注意：clear属性只会对<strong>自身</strong>起作用，而不会影响其他元素。按照我们上面那个例子的意思就是说，我们可以给粉色的那个c3属性的div标签设置一个clear：both，意思是说，这个标签的左右都不能有浮动的标签，那么它只能跑到两个浮动的c2div标签的下面，但是一般我们都会再c2和c3的中间加一个别的标签，给这个标签设置一个clear属性，并且高度设置为0，或者不给高度，因为浮动的标签是你自己c1里面的，所以你要自己解决，才能撑起你自己的高度，并且再用其他的标签的时候，我们就不需要再考虑浮动的问题了，直接写自己的样式就可以了，不然你每次加其他的标签都要去看看上面的标签有没有浮动的啊，对不对。</p>
+<p>　　　　接着看上面这个示例，如果我们这样设置：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208152435826-353168695.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208152443489-535497409.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208152651634-1441650559.png" alt="img"></p>
+<p>　　　　这样粉色的这个标签就上不去了</p>
+<p>　　　　</p>
+<h3 id="清除浮动"><a href="#清除浮动" class="headerlink" title="　　清除浮动"></a>　　清除浮动</h3><p>　　　　浮动的副作用（父标签塌陷问题），所以要清除浮动</p>
+<p>　　　　主要有三种方式：</p>
+<ul>
+<li>固定高度  就是我们刚才的示例，在父标签里面加一个其他的标签</li>
+<li>伪元素清除法  css来解决</li>
+<li>overflow:hidden</li>
+</ul>
+<p>　　　　伪元素清除法（使用较多）：</p>
+<pre><code>.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}</code></pre>
+<p> 　　我们通过微元素清除法来清除一下浮动：</p>
+<p>　　</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208153433550-863716120.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208153540566-1263790889.png" alt="img"></p>
+<p>　　　　效果是一样的：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208153615427-452192634.png" alt="img"></p>
+<p>　　　　一般业内约定成俗，都把这个清除浮动的class属性命名为clearfix，而不是cc，如果你在别的网页看到了这个clearfix，这个一定是用来清除浮动的。</p>
+<p> 　　　　总结一下：为什么要有浮动啊，是想做页面布局，但是浮动有副作用，父级标签塌陷，所以要想办法去掉这个副作用，使用了clear来清除浮动带来的副作用，我们当然也可以通过设置标签为inline-block来实现这种布局效果，但是把一个块级标签变成一个类似内敛标签的感觉，不好操控，容易混乱，所以一般都用浮动来进行布局。</p>
+<p>　　　　来吧，大家试试把，然后我们再继续学习~~</p>
+<h2 id="overflow溢出属性-（先看下面的例子）"><a href="#overflow溢出属性-（先看下面的例子）" class="headerlink" title="　　overflow溢出属性 （先看下面的例子）"></a>　　overflow溢出属性 （先看下面的例子）</h2><table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>visible</td>
+<td>默认值。内容不会被修剪，会呈现在元素框之外。</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td>内容会被修剪，并且其余内容是不可见的。</td>
+</tr>
+<tr>
+<td>scroll</td>
+<td>内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容。</td>
+</tr>
+<tr>
+<td>auto</td>
+<td>如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>规定应该从父元素继承 overflow 属性的值。</td>
+</tr>
+</tbody></table>
+<ul>
+<li>overflow（水平和垂直均设置）</li>
+<li>overflow-x（设置水平方向，只出现x轴的滚动条）</li>
+<li>overflow-y（设置垂直方向，只出现y轴的滚动条）</li>
+</ul>
+<p>　　举个例子：</p>
+<p>　　　　比如我们在一个标签里面写了一堆的文字，然后把标签的高度和宽度设置的比较小的时候，文字就溢出了：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208155013745-1334081272.png" alt="img"></p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208155049528-815492969.png" alt="img"></p>
+<p>　　　　然后我们就可以设置一下，如果文字溢出了，溢出的部分怎么办，设置一个overflow为hidden：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208155205217-1815585252.png" alt="img"></p>
+<p>　　　　再看效果，溢出的文字就不显示了。</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208155214151-1037425666.png" alt="img"></p>
+<p>　　　　如果设置成overflow为scroll，就会出现滚动条，我们改动一个下标签的高度和宽度昂，要不然不好看出效果：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208155331129-324851617.png" alt="img"></p>
+<p>　　　　看效果：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208155402017-2018949486.png" alt="img"></p>
+<p>　　　　</p>
+<h3 id="圆形头像示例"><a href="#圆形头像示例" class="headerlink" title="　　圆形头像示例"></a>　　圆形头像示例</h3><p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/ExpandedBlockStart.gif" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></p>
+<pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta http-equiv="x-ua-compatible" content="IE=edge"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;圆形的头像示例&lt;/title&gt;
+  &lt;style&gt;
+    * {
+      margin: 0;
+      padding: 0;
+      background-color: #eeeeee;
+    }
+    .header-img {
+      width: 150px;  #如果这个高度和宽度比图片的像素小怎么办，图片显示不全啊，因为用户上传的头像没准多大像素的，就需要设置下面哈格.header-mg&gt;img，里面写上max-width:100%了
+      height: 150px;
+      border: 3px solid white;
+      border-radius: 50%;  #圆形的边框
+      overflow: hidden;    #溢出的内容隐藏
+    }
+    .header-img&gt;img {
+      max-width: 100%; #相当于将图片的大小设置为父级标签的大小来显示了，因为用户上传的头像的像素我们是不知道的，就让它按照父级标签的大小来，就能放下整个头像了，就不会出现头像显示不全的问题了　　　　#直接写width:100%就行，上面写max-width的意思是如果图片大于咱们设置的标签高宽的时候，就按照父级标签的大小来，比父级标签的高宽小的时候，就不需要按照父级标签的大小来了，了解一下就行了
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class="header-img"&gt;
+  &lt;img src="https://q1mi.github.io/Blog/asset/img/head_img.jpg" alt=""&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208160326202-1175858535.png" alt="img"></p>
+<p>　　下面我们来学习定位：也是用来布局的，一般用来做一些小的布局，例如小米商城：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208160850518-974384966.png" alt="img"></p>
+<p>　　　　还有网站右上角这个东西：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208161009509-1636132809.png" alt="img"></p>
+<p>　　　　这些小范围的布局一般都是定位做的，大范围的布局一般都是用float来做的</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208161059442-994297110.png" alt="img"></p>
+<p>　　　　下面我们来看看定位的用法</p>
+<h2 id="定位（position）"><a href="#定位（position）" class="headerlink" title="　　定位（position）"></a>　　定位（position）</h2><h3 id="static（无定位，咱就不说了，主要看相对和绝对定位）"><a href="#static（无定位，咱就不说了，主要看相对和绝对定位）" class="headerlink" title="　　　　static（无定位，咱就不说了，主要看相对和绝对定位）"></a>　　　　static（无定位，咱就不说了，主要看相对和绝对定位）</h3><p>　　　　　　static 默认值，无定位，不能当作绝对定位的参照物，并且设置标签对象的left、top等值是不起作用的的。</p>
+<h3 id="relative（相对定位）"><a href="#relative（相对定位）" class="headerlink" title="　　　　relative（相对定位）"></a>　　　　relative（相对定位）</h3><p>　　　　　　相对定位是相对于该元素在文档流中的原始位置，即以自己原始位置左上角为参照物。有趣的是，即使设定了元素的相对定位以及偏移值，元素还占有着原来的位置，即占据文档流空间。对象遵循正常文档流，所以不会出现像浮动那种父级标签塌陷的副作用，但将依据top，right，bottom，left等属性在正常文档流中偏移位置。而其层叠通过z-index属性定义。往上移动:top:-100px（注意是负值）或者bottom：-100px（负值），往左移动：left:-100px（也是负值）或者right：-100px，往下移动:bottom：100px（正值）或者top：100px（正值），往右移动：right:100px（正值）或者left：100px。大家记住一点昂，凡是标签要进行移动，不管是float还是relative还是线面的absolute，都是按照元素自己的左上角进行计算的</p>
+<p>　　　　　　注意：position：relative的一个主要用法：方便下面要学的绝对定位元素找到参照物。可以将元素设置成relative，不设置任何的top、left、right、bottom等，它还是它原来的位置</p>
+<h3 id="absolute（绝对定位）"><a href="#absolute（绝对定位）" class="headerlink" title="　　　　absolute（绝对定位）"></a>　　　　absolute（绝对定位）</h3><p>　　　　　　定义：设置为绝对定位的元素框从文档流完全删除，也会有父级标签塌陷的问题，并相对于最近的已定位祖先元素定位，如果元素没有已定位的祖先元素，那么它的位置相对于最初的包含块（即body元素）。元素原先在正常文档流中所占的空间会关闭，就好像该元素原来不存在一样。元素定位后生成一个块级框，而不论原来它在正常流中生成何种类型的框。</p>
+<p>　　　　　　重点：如果父级设置了position属性，例如position:relative;，那么子元素就会以父级的左上角为原始点进行定位。这样能很好的解决自适应网站的标签偏离问题，即父级为自适应的，那我子元素就设置position:absolute;父元素设置position:relative;，然后Top、Right、Bottom、Left用百分比宽度表示。</p>
+<p>　　　　　　另外，对象脱离正常文档流，使用top，right，bottom，left等属性进行绝对定位。而其层叠通过z-index属性定义。</p>
+<h3 id="fixed（固定）不管页面怎么动，都在整个屏幕的某个位置"><a href="#fixed（固定）不管页面怎么动，都在整个屏幕的某个位置" class="headerlink" title="　　　　fixed（固定）不管页面怎么动，都在整个屏幕的某个位置"></a>　　　　fixed（固定）不管页面怎么动，都在整个屏幕的某个位置</h3><p>　　　　　　fixed：对象脱离正常文档流，使用top，right，bottom，left等属性以窗口为参考点进行定位，当出现滚动条时，对象不会随着滚动。而其层叠通过z-index属性 定义。 注意点： 一个元素若设置了 position:absolute | fixed; 则该元素就不能设置float。这 是一个常识性的知识点，因为这是两个不同的流，一个是浮动流，另一个是“定位流”。但是 relative 却可以。因为它原本所占的空间仍然占据文档流。</p>
+<p>　　　　　　在理论上，被设置为fixed的元素会被定位于浏览器窗口的一个指定坐标，不论窗口是否滚动，它都会固定在这个位置。</p>
+<p>　　　　　　示例代码：</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/ExpandedBlockStart.gif" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta http-equiv="x-ua-compatible" content="IE=edge"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;返回顶部示例&lt;/title&gt;
+  &lt;style&gt;
+    * {
+      margin: 0;
+    }
+
+    .d1 {
+      height: 1000px;
+      background-color: #eeee;
+    }
+
+    .scrollTop {
+      background-color: darkgrey;
+      padding: 10px;
+      text-align: center;  #水平居中
+      position: fixed;
+      right: 10px;  #距离窗口右边框的距离
+      bottom: 20px; #距离窗口下边框的距离      /*height：20px；　　　 line-height：20；当line-height等于height的值的时候，就能实现一个文本居中的效果 */
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="d1"&gt;111&lt;/div&gt;
+&lt;div class="scrollTop"&gt;返回顶部&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h2 id="z-index"><a href="#z-index" class="headerlink" title="　　　　z-index"></a>　　　　z-index</h2><pre><code>#i2 {
+  z-index: 999;
+}</code></pre>
+<p>　　　　　　设置对象的层叠顺序。一般用在模态对话框上：</p>
+<p>　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208164152428-1959185383.png" alt="img"></p>
+<p> 　　　　　那么谁在上面显示，谁被压在下面的呢，就是通过这个z-index来设置的。</p>
+<ol>
+<li>z-index 值表示谁压着谁，数值大的压盖住数值小的，</li>
+<li>只有定位了的元素，才能有z-index,也就是说，不管相对定位，绝对定位，固定定位，都可以使用z-index，而浮动元素float不能使用z-index</li>
+<li>z-index值没有单位，就是一个正整数，默认的z-index值为0如果大家都没有z-index值，或者z-index值一样，那么谁写在HTML后面，谁在上面压着别人，定位了元素，永远压住没有定位的元素。</li>
+<li>从父现象：父亲怂了，儿子再牛逼也没用</li>
+</ol>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/ExpandedBlockStart.gif" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></p>
+<p>　　#自定义的一个模态对话框示例代码：</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta http-equiv="x-ua-compatible" content="IE=edge"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;自定义模态框&lt;/title&gt;
+  &lt;style&gt;
+    .cover {
+      background-color: rgba(0,0,0,0.65); #rgba的最后一个参数就是透明度的意思，所以如果我们这样写，就不需要写下面那个opcity了，但是这个只表示的背景颜色的透明度，opcity是标签的透明度及标签的内容(包括里面的文字)及标签下面的子标签的透明度
+      position: fixed;
+      top: 0;
+      right: 0;  top\right\bottom\left都设置为0，意思就是全屏，这个标签把全屏都覆盖了
+      bottom: 0;
+      left: 0;
+      z-index: 998;      #opcity:0.4; #设置元素的透明度
+    }
+
+    .modal {
+      background-color: white;
+      position: fixed;
+      width: 600px;
+      height: 400px;
+      left: 50%;  #设置了left：50%和top：50%，你就会发现，你这个标签的左上角相对于页面的左面是50%，上面是50%，所以我们还要移动窗口，往左移动标签宽度的一半，往上移动高度的一半就行了。就是下面的margin设置
+      top: 50%;
+      margin: -200px 0 0 -300px; #左下右上，别忘了，往左移动要负值，往上移动要负值，因为它的移动是按照自己标签的左上角来移动的。
+      z-index: 1000;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class="cover"&gt;&lt;/div&gt;
+&lt;div class="modal"&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　　　来再教大家一个pycharm的用法，自定义快捷键：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208165037599-167607222.png" alt="img"></p>
+<p>　　　　　　然后点击apply和ok：</p>
+<p>　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208164917112-814808302.png" alt="img"></p>
+<p>　　　　在到html页面中也一个hya：</p>
+<p>　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208165142379-297836882.png" alt="img"></p>
+<p>　　　　就看到了这些文字：</p>
+<p>　　　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208165158044-1930711385.png" alt="img"></p>
+<p>　　　　在pycharm的使用秘籍里面都有昂，自己去学吧<del>~</del>，网上一搜pycharm的使用，就有</p>
+<h2 id="opacity"><a href="#opacity" class="headerlink" title="　　opacity"></a>　　opacity</h2><p>　　　　　　用来定义透明效果。取值范围是0~1，0是完全透明，1是完全不透明。</p>
+<h1 id="综合示例"><a href="#综合示例" class="headerlink" title="综合示例"></a>综合示例</h1><h2 id="顶部导航菜单"><a href="#顶部导航菜单" class="headerlink" title="　　顶部导航菜单"></a>　　顶部导航菜单</h2><p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/ExpandedBlockStart.gif" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></p>
+<pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta http-equiv="x-ua-compatible" content="IE=edge"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;li标签的float示例&lt;/title&gt;
+  &lt;style&gt;
+    /*清除浏览器默认外边距和内填充*/
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      text-decoration: none; /*去除a标签默认的下划线*/
+    }
+
+    .nav {
+      background-color: black;
+      height: 40px;
+      width: 100%;
+      position: fixed;
+      top: 0;
+    }
+
+    ul {
+      list-style-type: none; /*删除列表默认的圆点样式*/
+      margin: 0; /*删除列表默认的外边距*/
+      padding: 0; /*删除列表默认的内填充*/
+    }
+    /*li元素向左浮动*/
+    li {
+      float: left;
+    }
+
+    li &gt; a {
+      display: block; /*让链接显示为块级标签*/
+      padding: 0 15px; /*设置左右各15像素的填充*/
+      color: #b0b0b0; /*设置字体颜色*/
+      line-height: 40px; /*设置行高*/
+    }
+    /*鼠标移上去颜色变白*/
+    li &gt; a:hover {
+      color: #fff;
+    }
+
+    /*清除浮动 解决父级塌陷问题*/
+    .clearfix:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!-- 顶部导航栏 开始 --&gt;
+&lt;div class="nav"&gt;
+  &lt;ul class="clearfix"&gt;
+    &lt;li&gt;&lt;a href=""&gt;玉米商城&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;MIUI&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;ioT&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;云服务&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;水滴&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;金融&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;优品&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+&lt;!-- 顶部导航栏 结束 --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　上面的导航栏的效果：</p>
+<p>　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208172338278-1287460186.png" alt="img"></p>
+<p>　　将来我们在写一个页面的时候，首先写页面的整体结构，就是布局，大块先搞出来，再大块的基础上来来写小块，然后一级一级的这么写。看下面的小米商城的示例，按照红框–黄框–子框–蓝框来看整个布局：</p>
+<p>　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181208171930811-81553830.png" alt="img"></p>
+<p>　　产品经理需求–&gt;UI（视觉、交互等各种UI）将这些页面做成图片（包括里面的文字大小图片大小等都给你准备好，标的很清楚）–&gt;前端工程师（通过前端代码来实现UI的页面）–&gt;后端工程师（写提供数据、处理数据的逻辑）–&gt;DBA管理数据</p>
+<p> 　最后给大家一个css只做动画效果的方式：鼠标移动到标签上的时候，出现动态效果和阴影的效果：</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;style&gt;
+        /*给标签加上鼠标移动上去的一些效果*/
+        #test{
+            height: 200px;
+            border: 1px solid black;
+
+        }
+        #test:hover{
+            box-shadow: 0 5px 10px;  /*给标签加阴影的效果，参数1是水平方向的阴影，参数2的5px是垂直方向上的阴影，参数3是阴影的范围*/
+            transform: translate3d(3px,-2px,0); /*鼠标移动上去之后有个标签往上台的效果，三个参数是：x轴，y轴，z轴，现在的效果是y轴方向往上移动2px,x轴往右移动3px*/
+            transition:all,.2s linear; /*这个的意思是所有的新样式改变，在0.2秒内慢慢的显示出来*/
+        }
+
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id="test"&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　有一个做网页的时候的一个图片示例的网址：<a target="_blank" rel="noopener" href="https://dummyimage.com/">https://dummyimage.com/</a></p>
+<p>　　如果在这个网址后面输入下面的内容：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181210141333352-480132126.png" alt="img"></p>
+<p>　　　　一回车，你就看到下面的这个图：</p>
+<p>　　　　<img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/qd/988061-20181210141407737-1557279844.png" alt="img"></p>
+<p>　　</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">学习</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                                    <span class="chip bg-color">技术</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/11/15/%E5%89%8D%E7%AB%AF/Javascript%E5%AD%A6%E4%B9%A0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Javascript学习">
+                        
+                        <span class="card-title">Javascript学习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Wlcc___
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">技术</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/11/15/%E5%89%8D%E7%AB%AF/jQuery%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="jQuery快速入门">
+                        
+                        <span class="card-title">jQuery快速入门</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Wlcc___
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">技术</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            wl
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "6";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/1420566605wl" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1420566605@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1420566605" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1420566605" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

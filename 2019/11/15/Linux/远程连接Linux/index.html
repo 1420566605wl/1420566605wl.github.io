@@ -1,0 +1,1206 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="远程连接Linux, 多走几步">
+    <meta name="description" content="多走几步">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>远程连接Linux | 多走几步</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="多走几步" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">多走几步</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags/%E5%AD%A6%E4%B9%A0/" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">多走几步</div>
+        <div class="logo-desc">
+            
+            多走几步
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags/%E5%AD%A6%E4%B9%A0/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">远程连接Linux</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">学习</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                                <span class="chip bg-color">技术</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-11-15
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.3k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="远程连接Linux"><a href="#远程连接Linux" class="headerlink" title="远程连接Linux"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pyyu/articles/9336967.html">远程连接Linux</a></h1><h1 id="为什么要远程连接Linux"><a href="#为什么要远程连接Linux" class="headerlink" title="为什么要远程连接Linux"></a>为什么要远程连接Linux</h1><p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180719154016950-1152125979.png" alt="img"></p>
+<p>在实际的工作场景中，虚拟机界面或者物理服务器本地的终端都是很少接触的，因为服务器装完系统之后，都要拉倒IDC机房托管，如果是购买的云主机，那更碰不到服务器本体了，只能通过远程连接的方式管理自己的Linux系统。</p>
+<p>因此在装好Linux系统之后，使用的第一步应该是配置好客户端软件（ssh软件进行连接）连接Linux系统。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180719153631094-251712022.png" alt="img"></p>
+<p>通过什么软件呢?</p>
+<pre><code>Xshell
+SecureCRT</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180719154235581-2125715142.png" alt="img"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180719154318705-1547939912.png" alt="img"></p>
+<h1 id="远程连接必备的知识"><a href="#远程连接必备的知识" class="headerlink" title="远程连接必备的知识"></a>远程连接必备的知识</h1><h2 id="ip地址-gt-服务器的位置"><a href="#ip地址-gt-服务器的位置" class="headerlink" title="ip地址 > 服务器的位置"></a>ip地址 &gt; 服务器的位置</h2><p>互联网上的计算机都会有一个唯一的32位的ip地址，如同家里的门牌号，对应到服务器的位置。</p>
+<pre><code>我们找人，可以通过身份证号码对应某个人
+
+那我们找到某台服务器，也必须是通过IP地址</code></pre>
+<h3 id="局域网"><a href="#局域网" class="headerlink" title="局域网"></a>局域网</h3><p>（针对自己班级/家庭所在环境）里也有预留的ip地址，一般是192/10/172开头，局域网的IP地址也是唯一的。</p>
+<p>windows查看ip通过命令：</p>
+<pre><code>在cmd终端敲下：ipconfig查看“以太网适配器 本地连接  IPv4”的Ip地址就是自身网线的ip地址了</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180719162511173-460357524.png" alt="img"></p>
+<p>Linux查看ip方式：</p>
+<pre><code>方式1：ip addr
+方式2: ifconfig</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180719163059131-1219363710.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180719163142174-1538611416.png" alt="img"></p>
+<h3 id="外网Ip"><a href="#外网Ip" class="headerlink" title="外网Ip"></a>外网Ip</h3><p>全世界哪里都可以访问,</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20190322174744611-1777854956.png" alt="img"></p>
+<p> <img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20190322175446227-1742675363.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20190322175511569-334397356.png" alt="img"></p>
+<h1 id="虚拟机网络配置"><a href="#虚拟机网络配置" class="headerlink" title="虚拟机网络配置"></a>虚拟机网络配置</h1><p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<pre><code>host only 仅主机 单机模式，了解即可
+电脑pc   &gt;  皇帝
+虚拟机   &gt;   老百姓
+
+老百姓被皇帝控制，无法与外届通信
+
+
+
+
+
+nat模式(网络地址转换)
+电脑pc  &gt;    皇帝
+nat     &gt;    宰相
+虚拟机    &gt;    老百姓
+
+老百姓的房子是宰相分配的 与皇帝无关
+虚拟机的ip是nat分配的，电脑环境无论怎么变化，都不会影响虚拟机
+好处：
+在家，在学校，在公司，使用虚拟机，ip地址都不会变化
+
+桥接
+电脑pc    &gt;    皇帝
+虚拟机   &gt;    老百姓
+只要更换了一波皇帝，老百姓房子都得换
+只要换了个教室，插上网线，ip就变了
+好处：不用配置
+坏处：更换ip麻烦</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a>NAT模式</h3><p>电脑宿主机的ip在局域网内是唯一的，选择了NAT模式创建虚拟机，虚拟机就是一个新的局域网</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180719164228534-1434464564.png" alt="img"></p>
+<h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><p>用此模式，就是局域网中一台独立的主机，它可以访问该类网段任意一台机器，</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180719163802323-746976700.png" alt="img"></p>
+<h3 id="仅主机模式"><a href="#仅主机模式" class="headerlink" title="仅主机模式"></a>仅主机模式</h3><p>单机模式</p>
+<h1 id="端口的概念"><a href="#端口的概念" class="headerlink" title="端口的概念"></a>端口的概念</h1><p>一台服务器可以有一个ip地址，例如是192.168.11.1，服务器是需要对外提供服务的，例如web服务，FTP服务。那么仅凭ip地址，主机无法区分不同的服务，ip地址和网络服务是一对多的关系，一个ip提供多个服务，因此就有了“端口号”来区分不同的服务器的。</p>
+<p>端口（port）的设计规定是有65536这么多端口，每个端口对应唯一的程序，0-1024端口之间被操作系统占用，因此开发人员能使用的是1024-65536区间的端口。</p>
+<p><strong>通过IP地址可以访问到网络中的　　计算机。</strong></p>
+<p><strong>通过port端口可以找到　　计算机上的应用程序。</strong></p>
+<pre><code>ftp:23
+dns:53
+http:80
+https:443ssh:22</code></pre>
+<h1 id="协议的概念"><a href="#协议的概念" class="headerlink" title="协议的概念"></a>协议的概念</h1><p>protocol是为网络中的数据交换而建立的规则、标准或者约定，两个实体要通信，必须有同一种语言。</p>
+<pre><code>常见协议有超文本传输协议（HTTP）、文件传输协议（FTP），简单邮件传输协议（SMTP）、网络通信协议（TCP）、用户数据报协议（UDP）</code></pre>
+<p>总结</p>
+<table>
+<thead>
+<tr>
+<th>ip</th>
+<th>ip地址</th>
+<th>找人，找服务器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>port</td>
+<td>端口号</td>
+<td>提供什么服务</td>
+</tr>
+<tr>
+<td>protocol</td>
+<td>协议</td>
+<td>说什么语言</td>
+</tr>
+</tbody></table>
+<h1 id=""><a href="#" class="headerlink" title=""></a><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20190322180552823-582838157.png" alt="img"></h1><p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20190322183618085-1154002790.png" alt="img"></p>
+<pre><code>ssh root@ip -p port</code></pre>
+<h1 id="第一次连接Linux"><a href="#第一次连接Linux" class="headerlink" title="第一次连接Linux"></a>第一次连接Linux</h1><pre><code>1.下载Xshell
+2.命令：ssh ip  (默认22端口)</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180719171347474-978460122.png" alt="img"></p>
+<p>那么问题来了。。。。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180716124814657-1978698000.png" alt="img"></p>
+<p>这个黑乎乎的是个什么玩意？</p>
+<pre><code>Linux终端也称为虚拟控制台，Linux终端采用字符命令方式工作，用户通过键盘输入命令，通过Linux终端对系统进行控制
+Linux是一个多用户、多任务、支持多线程和多CPU的操作系统</code></pre>
+<h1 id="Linux切换虚拟终端"><a href="#Linux切换虚拟终端" class="headerlink" title="Linux切换虚拟终端"></a>Linux切换虚拟终端</h1><pre><code>ctrl+Alt+F[1~6]，如想切换到第二号虚拟终端，则同时按Ctrl+Alt+F2
+掌握普通用户登录后系统的提示符：$
+掌握root用户登录后系统的提示符：#</code></pre>
+<h1 id="查看终端信息shell命令"><a href="#查看终端信息shell命令" class="headerlink" title="查看终端信息shell命令"></a>查看终端信息shell命令</h1><p>那么如何查看当前Linux的终端有哪些呢？</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180716125329262-533037247.png" alt="img"></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<pre><code>命令，解释
+tty    查看当前终端
+who am i 仅显示当前用户正在使用的终端和登录时间
+w       查看所有终端（功能最全,显示用户名，终端标记，登录时间，负载等信息）</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h1 id="https-www-cnblogs-com-pyyu-p-9689138-html"><a href="#https-www-cnblogs-com-pyyu-p-9689138-html" class="headerlink" title="https://www.cnblogs.com/pyyu/p/9689138.html"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pyyu/p/9689138.html">https://www.cnblogs.com/pyyu/p/9689138.html</a></h1><p>配置nat网络</p>
+<h1 id="-1"><a href="#-1" class="headerlink" title=""></a></h1><h1 id="-2"><a href="#-2" class="headerlink" title=""></a></h1><h1 id="配置SSHD服务"><a href="#配置SSHD服务" class="headerlink" title="配置SSHD服务"></a>配置SSHD服务</h1><p>　　SSH(Secure Shell)是一种能够以安全的方式提供远程登录的协议，也是目前远程管理 Linux 系统的首选方式。在此之前，一般使用 FTP 或 Telnet 来进行远程登录。但是因为它们 以明文的形式在网络中传输账户密码和数据信息，因此很不安全，很容易受到黑客发起的中 间人攻击，这轻则篡改传输的数据信息，重则直接抓取服务器的账户密码。</p>
+<p>　　想要使用 SSH 协议来远程管理 Linux 系统，则需要部署配置 sshd 服务程序。sshd 是基于 SSH 协议开发的一款远程管理服务程序，不仅使用起来方便快捷，而且能够提供两种安全验证的方法:</p>
+<ol>
+<li>基于口令的验证——-用账号和密码登录</li>
+<li>基于密钥的验证——-需要在本地生成密钥对，然后把密钥对中的公钥上传至服务器，并与服务器中的公钥进行比较；</li>
+</ol>
+<p>超哥之前说过“Linux一切接文件”，也就是在Linux系统中修改服务程序，都得去修改它对应的配置文件，sshd程序的配置文件是/etc/ssh/sshd_config，检查配置文件参数</p>
+<pre><code>grep -v '^#' /etc/ssh/sshd_config |grep -v '^$'</code></pre>
+<p>在RHEL7系统中，已经默认安装启动了SSHD服务，</p>
+<h3 id="使用密码登录"><a href="#使用密码登录" class="headerlink" title="使用密码登录"></a>使用密码登录</h3><pre><code>ssh 192.168.12.15</code></pre>
+<h3 id="基于口令的认证"><a href="#基于口令的认证" class="headerlink" title="基于口令的认证"></a>基于口令的认证</h3><p>1.在第一次登录的时候，系统会出现下面的提示信息：</p>
+<pre><code>The authenticity of host 'ssh-server.example.com (12.18.429.21)' can't be established.
+RSA key fingerprint is 98:2e:d7:e0:de:9f:ac:67:28:c2:42:2d:37:16:58:4d.
+Are you sure you want to continue connecting (yes/no)?</code></pre>
+<p>上面的信息说的是：无法确认主机ssh-server.example.com（12.18.429.21）的真实性，不过知道它的公钥指纹，是否继续连接？</p>
+<p>输入yes之后，那么该host key会被加入到Client的known_hosts中，格式如下</p>
+<pre><code>pyyuc.cn,123.206.16.61 ecdsa-sha2-nistp256....</code></pre>
+<p>终端提示如下:</p>
+<pre><code>Warning: Permanently added 'ssh-server.example.com,12.18.429.21' (RSA) to the list of known hosts. 
+Password: (enter password) </code></pre>
+<p>提示该host已经被确认，并追加到文件known_hosts中，然后就要输入密码，之后的流程如图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180827093858656-309568316.png" alt="img"></p>
+<pre><code>私钥是server端独有的，即使client的信息泄露，也没有私钥进行解密，保证数据安全。</code></pre>
+<h3 id="使用安全秘钥"><a href="#使用安全秘钥" class="headerlink" title="使用安全秘钥"></a>使用安全秘钥</h3><p>加密是对信息进行编码和解码的技术，它通过一定的算法将原本可以直接阅读的铭文信息转换成密文。密钥就是密文的钥匙，有私钥和公钥之分。</p>
+<p>在数据传输时，担心被他人监听或截获，就可以在传输前先使用公钥对数据加密处理，然后再传送。这样只有掌握私钥的用户才能解密这段数据，除此之外的其让人即使截取了数据，也很难将其破解成明文。</p>
+<h3 id="基于公钥的免密登录"><a href="#基于公钥的免密登录" class="headerlink" title="基于公钥的免密登录"></a>基于公钥的免密登录</h3><p>1.在客户端主机生成“秘钥对”</p>
+<pre><code>ssh-keygen   </code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180823115908741-820799678.png" alt="img"></p>
+<p>2.第二步：吧客户端主机中生成的公钥文件传送至远程主机：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180823120052910-272864911.png" alt="img"></p>
+<p>3.对服务器端进行设置，使其只能允许秘钥登录，拒绝口令登录，然后重启sshd服务</p>
+<pre><code>vim /etc/ssh/sshd_config
+PasswordAuthentication nosystemctl restart sshd</code></pre>
+<p>4.在客户端即可免密登录服务器了</p>
+<pre><code>ssh root@123.206.16.61</code></pre>
+<p>课后作业</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<pre><code>1)    开启Linux操作系统，要求以root用户登录GNOME图形界面，语言支持选择为汉语
+2)    使用快捷键切换到虚拟终端2，使用普通用户身份登录，查看系统提示符
+3)    使用命令退出虚拟终端2上登录的用户
+4)    使用快捷键切换到虚拟终端5，使用管理员身份登录，查看系统提示符
+5)    使用命令退出虚拟终端5上登录的用户
+6)    切回图形界面，右单击桌面打开终端，输入关闭系统的命令7)　　 成功设置服务器免密登录</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>努力成为一个开发者 个人站点：<a target="_blank" rel="noopener" href="http://www.pythonav.cn/">www.pythonav.cn</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">学习</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                                    <span class="chip bg-color">技术</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/11/15/Linux/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="服务器核心知识">
+                        
+                        <span class="card-title">服务器核心知识</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Wlcc___
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">技术</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/11/15/Linux/%E9%9B%86%E7%BE%A4%E6%A6%82%E5%BF%B5/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="集群概念">
+                        
+                        <span class="card-title">集群概念</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Wlcc___
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">技术</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            wl
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "6";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/1420566605wl" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1420566605@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1420566605" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1420566605" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

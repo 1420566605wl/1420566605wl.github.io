@@ -1,0 +1,1854 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Django基础七之Ajax, 多走几步">
+    <meta name="description" content="多走几步">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Django基础七之Ajax | 多走几步</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="多走几步" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">多走几步</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags/%E5%AD%A6%E4%B9%A0/" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">多走几步</div>
+        <div class="logo-desc">
+            
+            多走几步
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags/%E5%AD%A6%E4%B9%A0/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Django基础七之Ajax</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">学习</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                                <span class="chip bg-color">技术</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-11-15
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.1k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <pre class="line-numbers language-html"><code class="language-html">**本节目录**
+
+- [一 Ajax简介](https://www.cnblogs.com/clschao/articles/10468335.html#part_1)
+- [二 Ajax使用](https://www.cnblogs.com/clschao/articles/10468335.html#part_2)
+- [三 Ajax请求设置csrf_token](https://www.cnblogs.com/clschao/articles/10468335.html#part_3)
+- [四 关于json](https://www.cnblogs.com/clschao/articles/10468335.html#part_4)
+- [五 补充一个SweetAlert插件(了解)](https://www.cnblogs.com/clschao/articles/10468335.html#part_5)
+- [六 xxx](https://www.cnblogs.com/clschao/articles/10468335.html#part_6)
+- [七 xxx](https://www.cnblogs.com/clschao/articles/10468335.html#part_7)
+- [八 xxx](https://www.cnblogs.com/clschao/articles/10468335.html#part_8)
+- 
+
+
+
+### 一 Ajax简介
+
+### **1.简介**
+
+　　　　AJAX（Asynchronous Javascript And XML）翻译成中文就是“异步的Javascript和XML”。即使用Javascript语言与服务器进行异步交互，传输的数据为XML（当然，传输的数据不只是XML,现在更多使用json数据）。
+
+　　　　AJAX 不是新的编程语言，而是一种使用现有标准的新方法。
+
+　　　　AJAX 最大的优点是在不重新加载整个页面的情况下，可以与服务器交换数据并更新部分网页内容。（这一特点给用户的感受是在不知不觉中完成请求和响应过程）
+
+　　　　AJAX 不需要任何浏览器插件，但需要用户允许JavaScript在浏览器上执行。
+
+　　　　　　a.同步交互：客户端发出一个请求后，需要等待服务器响应结束后，才能发出第二个请求；
+
+　　　　　　b.异步交互：客户端发出一个请求后，无需等待服务器响应结束，就可以发出第二个请求。
+
+ 　　AJAX除了**异步**的特点外，还有一个就是：浏览器页面**局部刷新**；（这一特点给用户的感受是在不知不觉中完成请求和响应过程
+
+### 2.示例
+
+　　　　**页面输入两个整数，通过AJAX传输到后端计算出结果并返回。**
+
+　　　　html文件名称为ajax_demo1.html，内容如下
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+```
+<span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>x-ua-compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>IE<span class="token punctuation">=</span>edge<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width<span class="token punctuation">=</span>device-width, initial-scale<span class="token punctuation">=</span>1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>AJAX局部刷新实例<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>i1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>i2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>=
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>i3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>AJAX提交<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>b1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/static/jquery-3.2.1.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+  <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#b1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    $<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      url<span class="token punctuation">:</span><span class="token string">"/ajax_add/"</span><span class="token punctuation">,</span>
+      type<span class="token punctuation">:</span><span class="token string">"GET"</span><span class="token punctuation">,</span>
+      data<span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token string">"i1"</span><span class="token punctuation">:</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#i1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">val</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">"i2"</span><span class="token punctuation">:</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#i2"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">val</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+      success<span class="token punctuation">:</span><span class="token keyword">function</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#i3"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">val</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+```
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+　　　　views.py里面的内容：
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+```
+def ajax_demo1(request):
+    return render(request, "ajax_demo1.html")
+
+
+def ajax_add(request):
+    i1 = int(request.GET.get("i1"))
+    i2 = int(request.GET.get("i2"))
+    ret = i1 + i2
+    return JsonResponse(ret, safe=False)
+```
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+　　　　urls.py里面的内容
+
+```
+urlpatterns = [
+    ...
+    url(r'^ajax_add/', views.ajax_add),
+    url(r'^ajax_demo1/', views.ajax_demo1),
+    ...   
+]
+```
+
+　　　启动django项目，然后运行看看效果，页面不刷新
+
+
+
+### **3.AJAX****常见应用情景**
+
+　　　　搜索引擎根据用户输入的关键字，自动提示检索关键字。
+
+　　　　还有一个很重要的应用场景就是注册时候的用户名的查重。
+
+　　　　其实这里就使用了AJAX技术！当文件框发生了输入变化时，使用AJAX技术向服务器发送一个请求，然后服务器会把查询到的结果响应给浏览器，最后再把后端返回的结果展示出来。
+
+　　　　　　a.整个过程中页面没有刷新，只是刷新页面中的局部位置而已！
+
+　　　　　　b.当请求发出后，浏览器还可以进行其他操作，无需等待服务器的响应！
+
+​       　　　　![img](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/877318-20161025165534625-1155566124.png)
+
+
+
+　　　　当输入用户名后，把光标移动到其他表单项上时，浏览器会使用AJAX技术向服务器发出请求，服务器会查询名为lemontree7777777的用户是否存在，最终服务器返回true表示名为lemontree7777777的用户已经存在了，浏览器在得到结果后显示“用户名已被注册！”。
+
+　　　　a.整个过程中页面没有刷新，只是局部刷新了；
+
+　　　　b.在请求发出后，浏览器不用等待服务器响应结果就可以进行其他操作；
+
+### **4.AJAX****的优缺点**
+
+#### 优点：
+
+　　　　　　1.AJAX使用JavaScript技术向服务器发送异步请求；
+
+　　　　　　2.AJAX请求无须刷新整个页面；
+
+　　　　　　3.因为服务器响应内容不再是整个页面，而是页面中的部分内容，所以AJAX性能高；
+
+
+
+
+
+
+
+### 二 Ajax的使用
+
+### 1.基于jQuery的实现
+
+　　　　看代码：
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+```
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>send_Ajax<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>send_Ajax<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+
+       <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".send_Ajax"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+           $<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+               url<span class="token punctuation">:</span><span class="token string">"/handle_Ajax/"</span><span class="token punctuation">,</span>
+               type<span class="token punctuation">:</span><span class="token string">"POST"</span><span class="token punctuation">,</span>
+               data<span class="token punctuation">:</span><span class="token punctuation">{</span>username<span class="token punctuation">:</span><span class="token string">"chao"</span><span class="token punctuation">,</span>password<span class="token punctuation">:</span><span class="token number">123</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+               success<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span>
+         　　　　　　
+               error<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>jqXHR<span class="token punctuation">,</span> textStatus<span class="token punctuation">,</span> err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+               complete<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>jqXHR<span class="token punctuation">,</span> textStatus<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>textStatus<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+               statusCode<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                    <span class="token string">'403'</span><span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>jqXHR<span class="token punctuation">,</span> textStatus<span class="token punctuation">,</span> err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                     <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+                    <span class="token string">'400'</span><span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>jqXHR<span class="token punctuation">,</span> textStatus<span class="token punctuation">,</span> err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+
+           <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+       <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+```
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+
+
+### 2.基于原生js实现
+
+　　　　看代码
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+```
+var b2 = document.getElementById("b2");
+  b2.onclick = function () {
+    // 原生JS
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("POST", "/ajax_test/", true);
+    xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlHttp.send("username=chao&amp;password=123456");
+    xmlHttp.onreadystatechange = function () {
+      if (xmlHttp.readyState === 4 &amp;&amp; xmlHttp.status === 200) {
+        alert(xmlHttp.responseText);
+      }
+    };
+  };
+```
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+
+
+### 3.Ajax－服务器－Ajax流程图
+
+　　 　　![img](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/988061-20190303224133636-733848807.png)
+
+
+
+
+
+
+
+### 三 Ajax请求设置csrf_token
+
+
+
+### 方式1
+
+　　　　通过获取隐藏的input标签中的csrfmiddlewaretoken值，放置在data中发送。
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+```
+$.ajax({
+  url: "/cookie_ajax/",
+  type: "POST",
+  data: {
+    "username": "chao",
+    "password": 123456,
+    "csrfmiddlewaretoken": $("[name = 'csrfmiddlewaretoken']").val()  // 使用jQuery取出csrfmiddlewaretoken的值，拼接到data中
+  },
+  success: function (data) {
+    console.log(data);
+  }
+})
+```
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+
+
+### 方式2（后面再说）
+
+　　　　通过获取返回的cookie中的字符串 放置在请求头中发送。
+
+　　　　注意：需要引入一个jquery.cookie.js插件。
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+```
+$.ajax({
+  url: "/cookie_ajax/",
+  type: "POST",
+  headers: {"X-CSRFToken": $.cookie('csrftoken')},  // 从Cookie取csrftoken，并设置到请求头中
+  data: {"username": "chao", "password": 123456},
+  success: function (data) {
+    console.log(data);
+  }
+})
+```
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+
+
+　　　　或者用自己写一个getCookie方法：
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+```
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie &amp;&amp; document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i &lt; cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');
+```
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+
+
+　　　　每一次都这么写太麻烦了，可以使用$.ajaxSetup()方法为ajax请求统一设置。
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+```
+function csrfSafeMethod(method) {
+  // these HTTP methods do not require CSRF protection
+  return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
+$.ajaxSetup({
+  beforeSend: function (xhr, settings) {
+    if (!csrfSafeMethod(settings.type) &amp;&amp; !this.crossDomain) {
+      xhr.setRequestHeader("X-CSRFToken", csrftoken);
+    }
+  }
+});
+```
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+
+
+　　　　注意：
+
+　　　　　　如果使用从cookie中取csrftoken的方式，需要确保cookie存在csrftoken值。
+
+　　　　　　如果你的视图渲染的HTML文件中没有包含 {% csrf_token %}，Django可能不会设置CSRFtoken的cookie。
+
+　　　　　　这个时候需要使用ensure_csrf_cookie()装饰器强制设置Cookie。
+
+```
+django.views.decorators.csrf import ensure_csrf_cookie
+
+
+@ensure_csrf_cookie
+def login(request):
+    pass
+```
+
+
+
+　　　　更多细节详见：[Djagno官方文档中关于CSRF的内容](https://docs.djangoproject.com/en/1.11/ref/csrf/)
+
+
+
+
+
+
+
+### 四 Ajax文件上传
+
+
+
+## 请求头ContentType
+
+　　　　ContentType指的是请求体的编码类型，常见的类型共有3种：
+
+### 1 application/x-www-form-urlencoded
+
+　　　　　　这应该是最常见的 POST 提交数据的方式了。浏览器的原生 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">></span></span> 表单，如果不设置 `enctype` 属性，那么最终就会以 application/x-www-form-urlencoded 方式提交数据。请求类似于下面这样（无关的请求头在本文中都省略掉了）：
+
+```
+POST http://www.example.com HTTP/1.1
+Content-Type: application/x-www-form-urlencoded;charset=utf-8
+
+user=yuan&amp;age=22
+```
+
+### 2 multipart/form-data
+
+　　　　　　这又是一个常见的 POST 数据提交的方式。我们使用表单上传文件时，必须让 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">></span></span> 表单的 `enctype` 等于 multipart/form-data。直接来看一个请求示例：
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)
+
+```
+POST http://www.example.com HTTP/1.1
+Content-Type:multipart/form-data; boundary=----WebKitFormBoundaryrGKCBY7qhFd3TrwA
+
+------WebKitFormBoundaryrGKCBY7qhFd3TrwA
+Content-Disposition: form-data; name="user"
+
+yuan
+------WebKitFormBoundaryrGKCBY7qhFd3TrwA
+Content-Disposition: form-data; name="file"; filename="chrome.png"
+Content-Type: image/png
+
+PNG ... content of chrome.png ...
+------WebKitFormBoundaryrGKCBY7qhFd3TrwA--
+```
+
+![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+　　　　　　这个例子稍微复杂点。首先生成了一个 boundary 用于分割不同的字段，为了避免与正文内容重复，boundary 很长很复杂。然后 Content-Type 里指明了数据是以 multipart/form-data 来编码，本次请求的 boundary 是什么内容。消息主体里按照字段个数又分为多个结构类似的部分，每部分都是以 `--boundary` 开始，紧接着是内容描述信息，然后是回车，最后是字段具体内容（文本或二进制）。如果传输的是文件，还要包含文件名和文件类型信息。消息主体最后以 `--boundary--` 标示结束。关于 multipart/form-data 的详细定义，请前往 [rfc1867](http://www.ietf.org/rfc/rfc1867.txt) 查看。
+
+　　　　　　这种方式一般用来上传文件，各大服务端语言对它也有着良好的支持。
+
+　　　　　　上面提到的这两种 POST 数据的方式，都是浏览器原生支持的，而且现阶段标准中原生 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">></span></span> 表单也[只支持这两种方式](http://www.w3.org/TR/html401/interact/forms.html#h-17.13.4)（通过 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">></span></span> 元素的 `enctype` 属性指定，默认为 `application/x-www-form-urlencoded`。其实 `enctype` 还支持 `text/plain`，不过用得非常少）。
+
+　　　　　　随着越来越多的 Web 站点，尤其是 WebApp，全部使用 Ajax 进行数据交互之后，我们完全可以定义新的数据提交方式，给开发带来更多便利。
+
+### 3 application/json
+
+　　　　　　application/json 这个 Content-Type 作为响应头大家肯定不陌生。实际上，现在越来越多的人把它作为请求头，用来告诉服务端消息主体是序列化后的 JSON 字符串。由于 JSON 规范的流行，除了低版本 IE 之外的各大浏览器都原生支持 JSON.stringify，服务端语言也都有处理 JSON 的函数，使用 JSON 不会遇上什么麻烦。
+
+　　　　　　JSON 格式支持比键值对复杂得多的结构化数据，这一点也很有用。记得我几年前做一个项目时，需要提交的数据层次非常深，我就是把数据 JSON 序列化之后来提交的。不过当时我是把 JSON 字符串作为 val，仍然放在键值对里，以 x-www-form-urlencoded 方式提交。
+
+## 基于form表单的文件上传 
+
+### 模板部分
+
+```
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>multipart/form-data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      用户名 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>user<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      头像 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>avatar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+```
+
+### 视图部分
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)
+
+```
+def index(request):
+    print(request.body)   # 原始的请求体数据
+    print(request.GET)    # GET请求数据
+    print(request.POST)   # POST请求数据
+    print(request.FILES)  # 上传的文件数据
+
+
+    return render(request,"index.html")
+```
+
+![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+## 基于Ajax的文件上传
+
+### 模板
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)
+
+```
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">></span></span>
+      用户名 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>user<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      头像 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>avatar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ajax-submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ajax-submit<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#ajax-submit"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">var</span> formdata<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        formdata<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"user"</span><span class="token punctuation">,</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#user"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">val</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+　　　　 formData<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"csrfmiddlewaretoken"</span><span class="token punctuation">,</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"[name='csrfmiddlewaretoken']"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">val</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> #别忘了csrf_token
+        formdata<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"avatar_img"</span><span class="token punctuation">,</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#avatar"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>files<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        $<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+            url<span class="token punctuation">:</span><span class="token string">""</span><span class="token punctuation">,</span>
+            type<span class="token punctuation">:</span><span class="token string">"post"</span><span class="token punctuation">,</span>
+            data<span class="token punctuation">:</span>formdata<span class="token punctuation">,</span>
+            processData<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">,</span>    <span class="token comment" spellcheck="true">// 不处理数据</span>
+            contentType<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>    <span class="token comment" spellcheck="true">// 不设置内容类型</span>
+
+            success<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+```
+
+![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+　　　　　　或者使用
+
+```
+var form = document.getElementById("form1");
+var fd = new FormData(form);
+```
+
+　　　　　　这样也可以直接通过ajax 的 send() 方法将 fd 发送到后台。
+
+　　　　　　注意：由于 FormData 是 XMLHttpRequest Level 2 新增的接口，现在 低于IE10 的IE浏览器不支持 FormData。
+
+### 视图
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)
+
+```
+def index(request):
+
+    if request.is_ajax():
+
+        print(request.body)   # 原始的请求体数据
+        print(request.GET)    # GET请求数据
+        print(request.POST)   # POST请求数据
+        print(request.FILES)  # 上传的文件数据
+
+        return HttpResponse("ok")
+
+
+    return render(request,"index.html")
+```
+
+![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+　　检查浏览器的请求头：
+
+```
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryaWl9k5ZMiTAzx3FT
+```
+
+
+
+## 练习（用户名是否已被注册）
+
+### 功能介绍
+
+　　　　　　在注册表单中，当用户填写了用户名后，把光标移开后，会自动向服务器发送异步请求。服务器返回这个用户名是否已经被注册过。
+
+### 案例分析
+
+- 页面中给出注册表单；
+- 在username input标签中绑定onblur事件处理函数。
+- 当input标签失去焦点后获取 username表单字段的值，向服务端发送AJAX请求；
+- django的视图函数中处理该请求，获取username值，判断该用户在数据库中是否被注册，如果被注册了就返回“该用户已被注册”，否则响应“该用户名可以注册”。
+
+
+
+
+
+
+
+### 五 关于json
+
+### 1.什么是json
+
+- JSON 指的是 JavaScript 对象表示法（JavaScript Object Notation）
+- JSON 是轻量级的文本数据交换格式
+- JSON 独立于语言 *
+- JSON 具有自我描述性，更易理解
+
+- JSON 使用 JavaScript 语法来描述数据对象，但是 JSON 仍然独立于语言和平台。JSON 解析器和 JSON 库支持许多不同的编程语言。
+
+ 　　　　啥都别多说了，上图吧！
+
+ ![img](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/867021-20180407213606833-782897022.jpg)
+
+　　　　合格的json对象：
+
+```
+["one", "two", "three"]
+{ "one": 1, "two": 2, "three": 3 }
+{"names": ["张三", "李四"] }
+[ { "name": "张三"}, {"name": "李四"} ]　
+```
+
+　　　　不合格的json对象：
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)
+
+```
+{ name: "张三", 'age': 32 }  // 属性名必须使用双引号
+[32, 64, 128, 0xFFF] // 不能使用十六进制值
+{ "name": "张三", "age": undefined }  // 不能使用undefined
+{ "name": "张三",
+  "birthday": new Date('Fri, 26 Aug 2011 07:13:10 GMT'),
+  "getName":  function() {return this.name;}  // 不能使用函数和日期对象
+}
+```
+
+![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+　　　　看一下普通字符串和json字符串，在进行序列化的时候的区别
+
+```
+import json
+# s = "{'name':'chao','age':18}" #普通字符串
+s = '{"name":"chao","age":18}'   #json字符串，里面必须是双引号
+ret = json.loads(s)
+print(ret)
+print(ret['name'])
+```
+
+
+
+### 2.js的stringify与parse方法
+
+　　　　JavaScript中关于JSON对象和字符串转换的两个方法：
+
+　　　　JSON.parse(): 用于将一个 JSON 字符串转换为 JavaScript 对象　
+
+```
+JSON.parse('{"name":"chao"}');
+JSON.parse('{name:"chao"}') ;   // 错误
+JSON.parse('[18,undefined]') ;   // 错误
+```
+
+　　　　JSON.stringify(): 用于将 JavaScript 值转换为 JSON 字符串。　
+
+```
+JSON.stringify({"name":"chao"})
+```
+
+### 3.和XML的比较
+
+　　　　JSON 格式于2001年由 Douglas Crockford 提出，目的就是取代繁琐笨重的 XML 格式。
+
+　　　　JSON 格式有两个显著的优点：书写简单，一目了然；符合 JavaScript 原生语法，可以由解释引擎直接处理，不用另外添加解析代码。所以，JSON迅速被接受，已经成为各大网站交换数据的标准格式，并被写入ECMAScript 5，成为标准的一部分。
+
+　　　　XML和JSON都使用结构化方法来标记数据，下面来做一个简单的比较。
+
+　　　　用XML表示中国部分省市数据如下：
+
+![img](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/ContractedBlock.gif) xml数据
+
+　　　　用JSON表示如下：
+
+![img](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/ContractedBlock.gif) json数据
+
+　　　　由上面的两端代码可以看出，JSON 简单的语法格式和清晰的层次结构明显要比 XML 容易阅读，并且在数据交换方面，由于 JSON 所使用的字符要比 XML 少得多，可以大大得节约传输数据所占用得带宽。 
+
+ 4.ajax和服务端的数据交互时的序列化问题
+
+　　当我们给ajax回复的不是一个字符串，而是其他数据类型的时候，需要我们将数据转换为json字符串进行发送，这样好配合js进行json字符串的处理，不然发送或者接受的是普通字符串的话，没办法处理成原来的数据类型。
+
+　　这就用到了我们前面的视图函数中那个JsonResponse了，[看博客](https://www.cnblogs.com/clschao/articles/10409764.html)，里面response的部分
+
+　　还要注意ajax中的data参数：
+
+　　　　data参数中的键值对，如果值值不为字符串，需要将其转换成字符串类型。
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+```
+$("#b1").on("click", function () {
+    $.ajax({
+      url:"/ajax_add/",
+      type:"GET",
+      data:{"i1":$("#i1").val(),"i2":$("#i2").val(),"hehe": JSON.stringify([1, 2, 3])},
+      success:function (data) {
+        $("#i3").val(data);
+      }
+    })
+  })
+```
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+
+
+### 5.Django内置的serializers做序列化
+
+　　　　看代码：
+
+```
+def books_json(request):
+    book_list = models.Book.objects.all()[0:10]
+    from django.core import serializers
+    ret = serializers.serialize("json", book_list)
+    return HttpResponse(ret)
+```
+
+
+
+
+
+
+
+### 六 补充一个SweetAlert插件示例
+
+ 看效果：
+
+　　　　![img](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/867021-20180407235320541-386911677.gif)
+
+
+
+　　点击下载[Bootstrap-sweetalert项目](https://github.com/lipis/bootstrap-sweetalert)。
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+```
+$(".btn-danger").on("click", function () {
+  swal({
+    title: "你确定要删除吗？",
+    text: "删除可就找不回来了哦！",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonClass: "btn-danger",
+    confirmButtonText: "删除",
+    cancelButtonText: "取消",
+    closeOnConfirm: false
+    },
+    function () {
+      var deleteId = $(this).parent().parent().attr("data_id");
+      $.ajax({
+        url: "/delete_book/",
+        type: "post",
+        data: {"id": deleteId},
+        success: function (data) {
+          if (data.status === 1) {
+            swal("删除成功!", "你可以准备跑路了！", "success");
+          } else {
+            swal("删除失败", "你可以再尝试一下！", "error")
+          }
+        }
+      })
+    });
+})
+```
+
+[![复制代码](https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/django/copycode.gif)](javascript:void(0);)
+
+[![复制代码](https:////common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">学习</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                                    <span class="chip bg-color">技术</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/11/15/Django/Django%E5%9F%BA%E7%A1%80%E4%B8%89%E4%B9%8B%E8%A7%86%E5%9B%BE%E5%87%BD%E6%95%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Django基础三之视图函数">
+                        
+                        <span class="card-title">Django基础三之视图函数</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Wlcc___
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">技术</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/11/15/Django/Django%E5%9F%BA%E7%A1%80%E4%BA%94%E4%B9%8Bdjango%E6%A8%A1%E5%9E%8B%E5%B1%82(%E4%B8%80)%E5%8D%95%E8%A1%A8%E6%93%8D%E4%BD%9C/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Django基础五之django模型层(一)单表操作">
+                        
+                        <span class="card-title">Django基础五之django模型层(一)单表操作</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Wlcc___
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">技术</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            wl
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "6";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/1420566605wl" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1420566605@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1420566605" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1420566605" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

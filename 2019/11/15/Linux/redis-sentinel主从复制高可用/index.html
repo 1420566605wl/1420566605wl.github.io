@@ -1,0 +1,1275 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="redis-sentinel主从复制高可用, 多走几步">
+    <meta name="description" content="多走几步">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>redis-sentinel主从复制高可用 | 多走几步</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="多走几步" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">多走几步</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags/%E5%AD%A6%E4%B9%A0/" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">多走几步</div>
+        <div class="logo-desc">
+            
+            多走几步
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags/%E5%AD%A6%E4%B9%A0/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">redis-sentinel主从复制高可用</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">学习</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                                <span class="chip bg-color">技术</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-11-15
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.9k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="redis-sentinel主从复制高可用"><a href="#redis-sentinel主从复制高可用" class="headerlink" title="redis-sentinel主从复制高可用"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pyyu/p/9718679.html">redis-sentinel主从复制高可用</a></h1><h1 id="Redis-Sentinel"><a href="#Redis-Sentinel" class="headerlink" title="Redis-Sentinel"></a>Redis-Sentinel</h1><pre><code>Redis-Sentinel是redis官方推荐的高可用性解决方案，当用redis作master-slave的高可用时，如果master本身宕机，redis本身或者客户端都没有实现主从切换的功能。
+
+而redis-sentinel就是一个独立运行的进程，用于监控多个master-slave集群，自动发现master宕机，进行自动切换slave &gt; master。</code></pre>
+<p>sentinel主要功能如下：</p>
+<ul>
+<li>不时的监控redis是否良好运行，如果节点不可达就会对节点进行下线标识</li>
+<li>如果被标识的是主节点，sentinel就会和其他的sentinel节点“协商”，如果其他节点也人为主节点不可达，就会选举一个sentinel节点来完成自动故障转义</li>
+<li>在master-slave进行切换后，master_redis.conf、slave_redis.conf和sentinel.conf的内容都会发生改变，即master_redis.conf中会多一行slaveof的配置，sentinel.conf的监控目标会随之调换</li>
+</ul>
+<h1 id="Sentinel的工作方式："><a href="#Sentinel的工作方式：" class="headerlink" title="Sentinel的工作方式："></a>Sentinel的工作方式：</h1><p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/ContractedBlock.gif" alt="img">sentinel公作方式</p>
+<h1 id="redis主从复制背景问题"><a href="#redis主从复制背景问题" class="headerlink" title="redis主从复制背景问题"></a>redis主从复制背景问题</h1><p><code>Redis</code>主从复制可将主节点数据同步给从节点，从节点此时有两个作用：</p>
+<ul>
+<li>一旦主节点宕机，从节点作为主节点的备份可以随时顶上来。</li>
+<li>扩展主节点的读能力，分担主节点读压力。</li>
+</ul>
+<p>但是问题是：</p>
+<ul>
+<li>一旦主节点宕机，从节点上位，那么需要人为修改所有应用方的主节点地址（改为新的master地址），还需要命令所有从节点复制新的主节点</li>
+</ul>
+<p>那么这个问题，redis-sentinel就可以解决了</p>
+<h1 id="主从复制架构"><a href="#主从复制架构" class="headerlink" title="主从复制架构"></a>主从复制架构</h1><p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180928114913282-867816204.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180928115021716-2071889796.png" alt="img"></p>
+<h1 id="Redis-Sentinel架构"><a href="#Redis-Sentinel架构" class="headerlink" title="Redis Sentinel架构"></a>Redis Sentinel架构</h1><p>redis的一个进程，但是不存储数据，只是监控redis</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20181124181822218-1125753774.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180928115711245-1503702880.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180928145626051-1360651849.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20180928145734973-1288883859.png" alt="img"></p>
+<h1 id="redis命令整理"><a href="#redis命令整理" class="headerlink" title="redis命令整理"></a>redis命令整理</h1><p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<pre><code>官网地址：http://redisdoc.com/
+
+redis-cli info #查看redis数据库信息
+
+redis-cli info replication #查看redis的复制授权信息
+redis-cli info sentinel   #查看redis的哨兵信息</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h1 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a>安装与配置</h1><p><strong>本实验是在测试环境下，考虑到学生机器较弱，因此只准备一台linux服务器用作环境！！</strong></p>
+<p>服务器环境，一台即可完成操作</p>
+<pre><code>master 192.168.119.10</code></pre>
+<p>所有配置文件如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20181107174748993-868053884.png" alt="img"></p>
+<h3 id="主节点master的redis-6379-conf"><a href="#主节点master的redis-6379-conf" class="headerlink" title="主节点master的redis-6379.conf"></a>主节点master的redis-6379.conf</h3><pre><code>port 6379
+daemonize yes
+logfile "6379.log"
+dbfilename "dump-6379.rdb"
+dir "/var/redis/data/"</code></pre>
+<h3 id="从节点slave的redis-6380-conf"><a href="#从节点slave的redis-6380-conf" class="headerlink" title="从节点slave的redis-6380.conf"></a>从节点slave的redis-6380.conf</h3><p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<pre><code>port 6380
+daemonize yes
+logfile "6380.log"
+dbfilename "dump-6380.rdb"
+dir "/var/redis/data/" 
+slaveof 127.0.0.1 6379      // 从属主节点</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h3 id="从节点slave的redis-6381-conf"><a href="#从节点slave的redis-6381-conf" class="headerlink" title="从节点slave的redis-6381.conf"></a>从节点slave的redis-6381.conf</h3><p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<pre><code>port 6381
+daemonize yes
+logfile "6380.log"
+dbfilename "dump-6380.rdb"
+dir "/var/redis/data/" 
+slaveof 127.0.0.1 6379      // 从属主节点</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h3 id="启动redis主节点"><a href="#启动redis主节点" class="headerlink" title="启动redis主节点"></a>启动redis主节点</h3><pre><code>redis-server /etc/redis-6379.conf</code></pre>
+<h3 id="测试redis主节点是否通信"><a href="#测试redis主节点是否通信" class="headerlink" title="测试redis主节点是否通信"></a>测试redis主节点是否通信</h3><pre><code>redis-cli  ping</code></pre>
+<h2 id="启动两slave节点"><a href="#启动两slave节点" class="headerlink" title="启动两slave节点"></a>启动两slave节点</h2><p>还记得上面超哥的截图吗？总体redis配置文件如下，6379为master，6380和6381为slave</p>
+<pre><code>-rw-r--r-- 1 root root 145 Nov  7 17:44 /etc/redis-6379.conf      #这个为主，port是6379
+-rw-r--r-- 1 root root  93 Nov  7 17:42 /etc/redis-6380.conf　　　 # 这个是从，port6380，并且得加上新的参数slaveof
+-rw-r--r-- 1 root root 115 Nov  7 17:42 /etc/redis-6381.conf      # 这个是从，port6381，并且得加上新的参数slaveof</code></pre>
+<p>redis-6380.conf  slave配置文件详解，6381端口的配置文件，仅仅和6380端口不一样</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<pre><code>port 6380
+daemonize yes
+logfile "6379.log"
+dbfilename "dump-6379.rdb"
+dir "/var/redis/data"
+# Generated by CONFIG REWRITE
+slaveof 127.0.0.1 6379</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/ContractedBlock.gif" alt="img">redis.conf详解–补充–</p>
+<h3 id="启动slave从节点的redis服务"><a href="#启动slave从节点的redis服务" class="headerlink" title="启动slave从节点的redis服务"></a>启动slave从节点的redis服务</h3><pre><code>[root@master 192.168.119.10 ~]$redis-server /etc/redis-6380.conf
+[root@master 192.168.119.10 ~]$redis-server /etc/redis-6381.conf</code></pre>
+<h3 id="验证从节点的redis服务"><a href="#验证从节点的redis服务" class="headerlink" title="验证从节点的redis服务"></a>验证从节点的redis服务</h3><pre><code>[root@master  ~]$redis-cli   -p 6380 ping
+PONG
+[root@master  ~]$redis-cli   -p 6381 ping
+PONG</code></pre>
+<h2 id="确定主从关系"><a href="#确定主从关系" class="headerlink" title="确定主从关系"></a>确定主从关系</h2><p>在主节点上查看主从通信关系</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<pre><code>[root@master ~]# redis-cli  -p 6379 info replication
+# Replication
+role:master
+connected_slaves:2
+slave0:ip=192.168.119.10,port=6380,state=online,offset=407,lag=0
+slave1:ip=192.168.119.10,port=6381,state=online,offset=407,lag=0
+master_repl_offset:407
+repl_backlog_active:1
+repl_backlog_size:1048576
+repl_backlog_first_byte_offset:2
+repl_backlog_histlen:406</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>在从节点上查看主从关系（6380、6379）</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<pre><code>[root@slave 192.168.119.11 ~]$redis-cli  -p 6380 info replication
+# Replication
+role:slave
+master_host:192.168.119.10
+master_port:6379
+master_link_status:up
+master_last_io_seconds_ago:3
+master_sync_in_progress:0
+slave_repl_offset:505
+slave_priority:100
+slave_read_only:1
+connected_slaves:0
+master_repl_offset:0
+repl_backlog_active:0
+repl_backlog_size:1048576
+repl_backlog_first_byte_offset:0
+repl_backlog_histlen:0</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><strong>此时可以在master上写入数据，在slave上查看数据，此时主从复制配置完成</strong></p>
+<h1 id="开始配置Redis-Sentinel"><a href="#开始配置Redis-Sentinel" class="headerlink" title="开始配置Redis Sentinel"></a>开始配置Redis Sentinel</h1><p>超哥实验的环境是单独一台linux，192.168.119.10</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<pre><code>[root@master tmp]# ll /etc/redis-*
+-rw-r--r-- 1 root root 145 Nov  7 17:44 /etc/redis-6379.conf
+-rw-r--r-- 1 root root  93 Nov  7 17:42 /etc/redis-6380.conf
+-rw-r--r-- 1 root root 115 Nov  7 17:42 /etc/redis-6381.conf
+-rw-r--r-- 1 root root 556 Nov  7 17:42 /etc/redis-sentinel-26379.conf
+-rw-r--r-- 1 root root 556 Nov  7 17:42 /etc/redis-sentinel-26380.conf
+-rw-r--r-- 1 root root 556 Nov  7 17:42 /etc/redis-sentinel-26381.conf</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>redis-sentinel-26379.conf配置文件写入如下信息</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<pre><code>// Sentinel节点的端口
+port 26379  
+dir /var/redis/data/
+logfile "26379.log"
+
+// 当前Sentinel节点监控 192.168.119.10:6379 这个主节点
+// 2代表判断主节点失败至少需要2个Sentinel节点节点同意
+// mymaster是主节点的别名
+sentinel monitor mymaster 192.168.119.10 6379 2
+
+//每个Sentinel节点都要定期PING命令来判断Redis数据节点和其余Sentinel节点是否可达，如果超过30000毫秒30s且没有回复，则判定不可达
+sentinel down-after-milliseconds mymaster 30000
+
+//当Sentinel节点集合对主节点故障判定达成一致时，Sentinel领导者节点会做故障转移操作，选出新的主节点，原来的从节点会向新的主节点发起复制操作，限制每次向新的主节点发起复制操作的从节点个数为1
+sentinel parallel-syncs mymaster 1
+
+//故障转移超时时间为180000毫秒
+sentinel failover-timeout mymaster 180000</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<pre><code>redis-sentinel-26380.conf和redis-sentinel-26381.conf的配置仅仅差异是port(端口)的不同。然后启动三个sentinel哨兵
+redis-sentinel /etc/redis-sentinel-26379.conf
+redis-sentinel /etc/redis-sentinel-26380.conf
+redis-sentinel /etc/redis-sentinel-26381.conf</code></pre>
+<p>监控拓扑图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/1132884-20181116091956977-1189113564.png" alt="img"></p>
+<p>此时查看哨兵是否成功通信</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<pre><code>[root@master ~]# redis-cli -p 26379  info sentinel
+# Sentinel
+sentinel_masters:1
+sentinel_tilt:0
+sentinel_running_scripts:0
+sentinel_scripts_queue_length:0
+sentinel_simulate_failure_flags:0
+master0:name=mymaster,status=ok,address=192.168.119.10:6379,slaves=2,sentinels=3#看到最后一条信息正确即成功了哨兵，哨兵主节点名字叫做mymaster，状态ok，监控地址是192.168.119.10:6379，有两个从节点，3个哨兵
+</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h1 id="redis高可用故障实验"><a href="#redis高可用故障实验" class="headerlink" title="redis高可用故障实验"></a>redis高可用故障实验</h1><p>大致思路</p>
+<ul>
+<li><p>杀掉主节点的redis进程6379端口，观察从节点是否会进行新的master选举，进行切换</p>
+</li>
+<li><p>重新恢复旧的“master”节点，查看此时的redis身份</p>
+<p>首先查看三个redis的进程状态</p>
+</li>
+</ul>
+<pre><code>ps -ef|grep redis</code></pre>
+<p>检查三个节点的复制身份状态</p>
+<p>第一个</p>
+<pre><code>[root@master tmp]# redis-cli -p 6381 info replication
+# Replication
+role:slave
+master_host:127.0.0.1
+master_port:6380</code></pre>
+<p>第二个</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<pre><code>[root@master tmp]# redis-cli -p 6380 info replication
+# Replication
+role:master
+connected_slaves:2
+slave0:ip=127.0.0.1,port=6381,state=online,offset=54386,lag=0
+slave1:ip=127.0.0.1,port=6379,state=online,offset=54253,lag=0</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/linux/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>第三个</p>
+<pre><code>[root@master tmp]# redis-cli -p 6379 info replication
+# Replication
+role:slave
+master_host:127.0.0.1
+master_port:6380</code></pre>
+<p><strong>此时，干掉master！！！然后等待其他两个节点是否能自动被哨兵sentienl，切换为master节点</strong></p>
+<pre><code>ps -ef|grep 6380   #干掉master进程</code></pre>
+<p>此时查看两个slave的状态</p>
+<p><strong>精髓就是查看一个参数</strong></p>
+<pre><code>master_link_down_since_seconds:13</code></pre>
+<p><strong>稍等片刻之后，发现slave节点成为master节点！！</strong></p>
+<pre><code>[root@master tmp]# redis-cli -p 6379 info replication
+# Replication
+role:master
+connected_slaves:1
+slave0:ip=127.0.0.1,port=6381,state=online,offset=41814,lag=1</code></pre>
+<p><strong>大功告成！！开心！！！</strong></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">学习</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                                    <span class="chip bg-color">技术</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/11/15/Linux/python%E6%93%8D%E4%BD%9Credis%E9%9B%86%E7%BE%A4%20/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="python操作redis集群">
+                        
+                        <span class="card-title">python操作redis集群</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Wlcc___
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">技术</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/11/15/Linux/redis%E4%B8%8D%E9%87%8D%E5%90%AF%EF%BC%8C%E5%88%87%E6%8D%A2RDB%E5%A4%87%E4%BB%BD%E5%88%B0AOF%E5%A4%87%E4%BB%BD/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="redis不重启，切换RDB备份到AOF备份">
+                        
+                        <span class="card-title">redis不重启，切换RDB备份到AOF备份</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Wlcc___
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">技术</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            wl
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "6";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/1420566605wl" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1420566605@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1420566605" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1420566605" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

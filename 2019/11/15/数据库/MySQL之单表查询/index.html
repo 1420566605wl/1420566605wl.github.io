@@ -1,0 +1,1767 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="MySQL之单表查询, 多走几步">
+    <meta name="description" content="多走几步">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>MySQL之单表查询 | 多走几步</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="多走几步" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">多走几步</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags/%E5%AD%A6%E4%B9%A0/" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">多走几步</div>
+        <div class="logo-desc">
+            
+            多走几步
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags/%E5%AD%A6%E4%B9%A0/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">MySQL之单表查询</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">学习</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                                <span class="chip bg-color">技术</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-11-15
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    8.8k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><strong>阅读目录</strong></p>
+<ul>
+<li><a href="#_label1">一 单表查询的语法</a></li>
+<li><a href="#_label2">二 关键字的执行优先级(重点)</a></li>
+<li><a href="#_label3">三 简单查询</a></li>
+<li><a href="#_label4">四 WHERE约束</a></li>
+<li><a href="#_label5">五 分组查询:GROUP BY</a></li>
+<li><a href="#_label6">六 HAVING过滤</a></li>
+<li><a href="#_label7">七 查询排序:ORDER BY</a></li>
+<li><a href="#_label8">八 限制查询的记录数:LIMIT</a></li>
+<li><a href="#_label9">九 使用正则表达式查询</a></li>
+</ul>
+<h1 id="一-单表查询的语法"><a href="#一-单表查询的语法" class="headerlink" title="一 单表查询的语法"></a>一 单表查询的语法</h1><p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<pre><code>#查询数据的本质：mysql会到你本地的硬盘上找到对应的文件，然后打开文件，按照你的查询条件来找出你需要的数据。下面是完整的一个单表查询的语法
+select * from，这个select * 指的是要查询所有字段的数据。
+SELECT distinct 字段1,字段2... FROM 库名.表名 #from后面是说从库的某个表中去找数据，mysql会去找到这个库对应的文件夹下去找到你表名对应的那个数据文件，找不到就直接报错了，找到了就继续后面的操作
+                  WHERE 条件       #从表中找符合条件的数据记录，where后面跟的是你的查询条件
+                  GROUP BY field（字段）   #分组
+                  HAVING 筛选      #过滤，过滤之后执行select后面的字段筛选，就是说我要确定一下需要哪个字段的数据，你查询的字段数据进行去重，然后在进行下面的操作
+                  ORDER BY field（字段）   #将结果按照后面的字段进行排序
+                  LIMIT 限制条数    #将最后的结果加一个限制条数，就是说我要过滤或者说限制查询出来的数据记录的条数关于上面这些内容，我们在下面一个一个的来详细解释</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h1 id="二-关键字的执行优先级-重点"><a href="#二-关键字的执行优先级-重点" class="headerlink" title="二 关键字的执行优先级(重点)"></a>二 关键字的执行优先级(重点)</h1><p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></p>
+<pre><code>重点中的重点：关键字的执行优先级
+from
+where
+group by
+having
+select
+distinct
+order by
+limit</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　<strong>1.找到表:from</strong></p>
+<p>　　<strong>2.拿着where指定的约束条件，去文件/表中取出一条条记录</strong></p>
+<p>　　<strong>3.将取出的一条条记录进行分组group by，如果没有group by，则整体作为一组</strong></p>
+<p>　　<strong>4.将分组的结果进行having过滤</strong></p>
+<p>　　<strong>5.执行select</strong></p>
+<p>　　<strong>6.去重</strong></p>
+<p>　　<strong>7.将结果按条件排序：order by</strong></p>
+<p>　　<strong>8.限制结果的显示条数</strong></p>
+<p>​       <strong>详细见：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/clschao/articles/9995517.html">https://www.cnblogs.com/clschao/articles/9995517.html</a></strong></p>
+<h1 id="三-简单查询"><a href="#三-简单查询" class="headerlink" title="三 简单查询"></a>三 简单查询</h1><p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<pre><code>#我们来创建一个员工表，然后对员工表进行一个简单的查询，来看一下效果，下面是员工表的字段company.employee
+    员工id      id                  int             
+    姓名        emp_name            varchar
+    性别        sex                 enum
+    年龄        age                 int
+    入职日期     hire_date           date
+    岗位        post                varchar
+    职位描述     post_comment        varchar
+    薪水        salary              double
+    办公室       office              int
+    部门编号     depart_id           int
+
+
+
+#创建表
+create table employee(
+    id int not null unique auto_increment,
+    name varchar(20) not null,
+    sex enum('male','female') not null default 'male', #大部分是男的
+    age int(3) unsigned not null default 28,
+    hire_date date not null,
+    post varchar(50),
+    post_comment varchar(100),
+    salary double(15,2),
+    office int, #一个部门一个屋子
+    depart_id int
+);
+
+
+#查看表结构
+mysql&gt; desc employee;
++--------------+-----------------------+------+-----+---------+----------------+
+| Field        | Type                  | Null | Key | Default | Extra          |
++--------------+-----------------------+------+-----+---------+----------------+
+| id           | int(11)               | NO   | PRI | NULL    | auto_increment |
+| name         | varchar(20)           | NO   |     | NULL    |                |
+| sex          | enum('male','female') | NO   |     | male    |                |
+| age          | int(3) unsigned       | NO   |     | 28      |                |
+| hire_date    | date                  | NO   |     | NULL    |                |
+| post         | varchar(50)           | YES  |     | NULL    |                |
+| post_comment | varchar(100)          | YES  |     | NULL    |                |
+| salary       | double(15,2)          | YES  |     | NULL    |                |
+| office       | int(11)               | YES  |     | NULL    |                |
+| depart_id    | int(11)               | YES  |     | NULL    |                |
++--------------+-----------------------+------+-----+---------+----------------+
+
+#插入记录
+#三个部门：教学，销售，运营
+insert into employee(name,sex,age,hire_date,post,salary,office,depart_id) values
+('egon','male',18,'20170301','老男孩驻沙河办事处外交大使',7300.33,401,1), #以下是教学部，全都是老师
+('alex','male',78,'20150302','teacher',1000000.31,401,1),
+('wupeiqi','male',81,'20130305','teacher',8300,401,1),
+('yuanhao','male',73,'20140701','teacher',3500,401,1),
+('liwenzhou','male',28,'20121101','teacher',2100,401,1),
+('jingliyang','female',18,'20110211','teacher',9000,401,1),
+('jinxin','male',18,'19000301','teacher',30000,401,1),
+('成龙','male',48,'20101111','teacher',10000,401,1),
+
+('歪歪','female',48,'20150311','sale',3000.13,402,2),#以下是销售部门
+('丫丫','female',38,'20101101','sale',2000.35,402,2),
+('丁丁','female',18,'20110312','sale',1000.37,402,2),
+('星星','female',18,'20160513','sale',3000.29,402,2),
+('格格','female',28,'20170127','sale',4000.33,402,2),
+
+('张野','male',28,'20160311','operation',10000.13,403,3), #以下是运营部门
+('程咬金','male',18,'19970312','operation',20000,403,3),
+('程咬银','female',18,'20130311','operation',19000,403,3),
+('程咬铜','male',18,'20150411','operation',18000,403,3),
+('程咬铁','female',18,'20140512','operation',17000,403,3)
+;
+
+#ps：如果在windows系统中，插入中文字符，select的结果为空白，可以将所有字符编码统一设置成gbk</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　查询操作：</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<pre><code>简单查询
+    SELECT id,name,sex,age,hire_date,post,post_comment,salary,office,depart_id 
+    FROM employee;
+
+    SELECT * FROM employee; #不推荐用* ，查询的时候*的效率低，至于为什么低，后面会讲到，先知道一下就行了
+
+    SELECT name,salary FROM employee;
+
+#避免重复DISTINCT   SELECT post FROM employee;#直接这样查询我们会看到很多重复的内容，我只想看一下有哪些职位，那么多重复的内容是没用的，所以我们加一个去重的功能，叫做distinct 　　SELECT DISTINCT post FROM employee;  #对查询出来的记录进行去重，如果post职位有重复的，就会被剔除，剩下不重复的内容，注意，因为我们查询出来的记录里面只有一个字段post，才会根据post来进行去重   SELECT DISTINCT post，salary FROM employee；#但是如果这样写，你会发现，貌似没有起到根据post来去重的效果，因为你的去重条件变成了post和salary两个字段的数据，只有他俩合起来是一个重复记录的时候才会去重   
+   　　看一下下面这两句的效果就明白了：注意一点，使用distinct对记录进行去重的时候，distinct必须写在所有查询字段的前面，不然会报错，当然有些特别的用法可以结合着写到字段的中间或者后面，这个后面学到了我们再说   select post，sex from employee；   select distinct post，sex from employee；
+#通过四则运算查询
+    SELECT name, salary*12 FROM employee; #查询每个人的年薪，月薪我们有记录，查年薪呢？简单的乘以12就可以了，from 库.表的时候，我们已经通过use 库名；来指定了库了，所以from的时候直接写from 表，就行了
+    #你会发现，结果是出来了，但是我们的那个薪资的字段名变成了salary*12，是因为我们通过查询语句查询出来的也是一张表，但是这个表是不是内存当中的一个虚拟表，并不是我们硬盘中存的那个完整的表，对吧，虚拟表是不是也有标题和记录啊，既然是一个表，我们是可以指定这个虚拟表的标题的，通过as+新字段名来指定    SELECT name, salary*12 AS Annual_salary FROM employee; #as + 新字段名，就是起一个别名的意思，上面的那个salary*12的字段名也是一个别名，只不过不直观，是mysql自动给你写上的
+    SELECT name, salary*12 Annual_salary FROM employee;
+　　#除了乘法以外，加减乘除都是可以的
+#自定义显示格式，自己规定查询结果的显示格式
+   CONCAT() 函数用于连接字符串
+   SELECT CONCAT('姓名: ',name,'  年薪: ', salary*12)  AS Annual_salary  #我想让name这个字段显示的字段名称是中文的姓名，让salary*12显示的是中文的年薪，
+   FROM employee;#看结果：通过结果你可以看出，这个concat就是帮我们做字符串拼接的，并且拼接之后的结果，都在一个叫做Annual_salary的字段中了</code></pre>
+<p>　　　　+—————————————+<br>　　　　| Annual_salary |<br>　　　　+—————————————+<br>　　　　| 姓名: egon 年薪: 87603.96 |<br>　　　　| 姓名: alex 年薪: 12000003.72 |<br>　　　　| 姓名: wupeiqi 年薪: 99600.00 |<br>　　　　| 姓名: yuanhao 年薪: 42000.00 |</p>
+<p>　　　　…..</p>
+<p>​       +—————————————+</p>
+<pre><code>   SELECT CONCAT('姓名: ',name,'  年薪: ', salary*12)  AS Annual_salary,CONCAT('性别：',sex) from employee;#还可以这样分成两列　　
+   CONCAT_WS() 第一个参数为分隔符来进行字符串拼接
+   SELECT CONCAT_WS(':',name,salary*12)  AS Annual_salary  #通过冒号来将name和salary连接起来
+   FROM employee;
+   #上面这个效果我们也可以通过concat来实现：SELECT CONCAT(name,':',salary*12)  AS Annual_salary from employee;
+   结合CASE语句：结合条件来对查询的结果进行一些加工操作
+   SELECT
+       (
+           CASE
+           WHEN NAME = 'egon' THEN
+               NAME
+           WHEN NAME = 'alex' THEN
+               CONCAT(name,'_BIGSB')
+           ELSE
+               concat(NAME, 'SB')
+           END
+       ) as new_name,sex
+   FROM
+       employee;#看结果:</code></pre>
+<p>　　　　+————–+——–+<br>　　　　| new_name | sex |<br>　　　　+————–+——–+<br>　　　　| egon | male |<br>　　　　| alex_BIGSB | male |<br>　　　　| wupeiqiSB | male |<br>　　　　| yuanhaoSB | male |<br>　　　　| liwenzhouSB | male |<br>　　　　| jingliyangSB | female |<br>　　　　| jinxinSB | male |<br>　　　　| 成龙SB | male |</p>
+<p>　　　　…</p>
+<p>　　　　+————–+</p>
+<pre><code></code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p> 　　简单查询就结束了，我们做一下练习，然后继续学习我们上面列举完整查询语句中的其他内容。</p>
+<p>　　小练习：</p>
+<pre><code>1 查出所有员工的名字，薪资,格式为
+    &lt;名字:egon&gt;    &lt;薪资:3000&gt;
+2 查出所有的岗位（去掉重复）
+3 查出所有员工名字，以及他们的年薪,年薪的字段名为annual_year</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/ExpandedBlockStart.gif" alt="img"></p>
+<pre><code>select concat('&lt;名字:',name,'&gt;    ','&lt;薪资:',salary,'&gt;') from employee;
+select distinct depart_id from employee;
+select name,salary*12 annual_salary from employee;</code></pre>
+<h1 id="四-WHERE约束"><a href="#四-WHERE约束" class="headerlink" title="四 WHERE约束"></a>四 WHERE约束</h1><p>　　where语句中可以使用：</p>
+<p>　　　　之前我们用where 后面跟的语句是不是id=1这种类型的啊，用=号连接的，除了=号外，还能使用其他的，看下面：</p>
+<p>　　1. 比较运算符：&gt; &lt; &gt;= &lt;= &lt;&gt; !=<br>　　2. between 80 and 100 值在80到100之间<br>　　3. in(80,90,100)  值是80或90或100<br>　　4. like ‘egon%’</p>
+<pre><code>　　pattern可以是%或_，
+　　%表示任意多字符
+　　_表示一个字符 </code></pre>
+<p>　　5. 逻辑运算符：在多个条件直接可以使用逻辑运算符 and or not</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<pre><code>#1:单条件查询
+    SELECT name FROM employee
+        WHERE post='sale';  #注意优先级，我们说where的优先级是不是比select要高啊，所以我们的顺序是先找到这个employee表，然后按照post='sale'的条件，然后去表里面select数据
+
+#2:多条件查询
+    SELECT name,salary FROM employee 
+        WHERE post='teacher' AND salary&gt;10000;
+
+#3:关键字BETWEEN AND 写的是一个区间
+    SELECT name,salary FROM employee 
+        WHERE salary BETWEEN 10000 AND 20000; #就是salary&gt;=10000 and salary&lt;=20000的数据
+
+    SELECT name,salary FROM employee 
+        WHERE salary NOT BETWEEN 10000 AND 20000; #加个not，就是不在这个区间内，薪资小于10000的或者薪资大于20000的，注意没有等于，
+
+#4:关键字IS NULL(判断某个字段是否为NULL不能用等号，需要用IS) 判断null只能用is
+    SELECT name,post_comment FROM employee 
+        WHERE post_comment IS NULL;
+
+    SELECT name,post_comment FROM employee 
+        WHERE post_comment IS NOT NULL;
+
+    SELECT name,post_comment FROM employee 
+        WHERE post_comment=''; 注意''是空字符串，不是null，两个是不同的东西，null是啥也没有，''是空的字符串的意思，是一种数据类型，null是另外一种数据类型
+    ps：
+        执行
+        update employee set post_comment='' where id=2;
+        再用上条查看，就会有结果了
+
+#5:关键字IN集合查询
+    SELECT name,salary FROM employee 
+        WHERE salary=3000 OR salary=3500 OR salary=4000 OR salary=9000 ; #这样写是不是太麻烦了，写一大堆的or，下面我们用in这个简单的写法来搞
+
+    SELECT name,salary FROM employee 
+        WHERE salary IN (3000,3500,4000,9000) ;
+
+    SELECT name,salary FROM employee 
+        WHERE salary NOT IN (3000,3500,4000,9000) ;
+
+#6:关键字LIKE模糊查询，模糊匹配，可以结合通配符来使用
+    通配符’%’  #匹配任意所有字符
+    SELECT * FROM employee 
+            WHERE name LIKE 'eg%';
+
+    通配符’_’  #匹配任意一个字符   
+    SELECT * FROM employee 
+            WHERE name LIKE 'al__'; #注意我这里写的两个_，用1个的话，匹配不到alex，因为al后面还有两个字符ex。</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>where条件咱们就说完了，这个where条件到底怎么运作的，我们来说一下：我们以select id,name,age from employee where id&gt;7;这个语句来说一下</p>
+<p>　　首先先找到employee表，找到这个表之后，mysql会拿着where后面的约束条件去表里面找符合条件的数据，然后遍历你表中所有的数据，查看一下id是否大于7，逐条的对比，然后只要发现id比7大的，它就会把这一整条记录给select，但是select说我只拿id、name、age这个三个字段里面的数据，然后就打印了这三个字段的数据，然后where继续往下过滤，看看id是不是还有大于7的，然后发现一个符合条件的就给select一个，然后重复这样的事情，直到把数据全部过滤一遍才会结束。这就是where条件的一个工作方式。</p>
+<p>然后我们可以来做一些小练习：</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<pre><code>1. 查看岗位是teacher的员工姓名、年龄
+2. 查看岗位是teacher且年龄大于30岁的员工姓名、年龄
+3. 查看岗位是teacher且薪资在9000-1000范围内的员工姓名、年龄、薪资
+4. 查看岗位描述不为NULL的员工信息
+5. 查看岗位是teacher且薪资是10000或9000或30000的员工姓名、年龄、薪资
+6. 查看岗位是teacher且薪资不是10000或9000或30000的员工姓名、年龄、薪资
+7. 查看岗位是teacher且名字是jin开头的员工姓名、年薪</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/ExpandedBlockStart.gif" alt="img"></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<pre><code>select name,age from employee where post = 'teacher';
+select name,age from employee where post='teacher' and age &gt; 30; 
+select name,age,salary from employee where post='teacher' and salary between 9000 and 10000;
+select * from employee where post_comment is not null;
+select name,age,salary from employee where post='teacher' and salary in (10000,9000,30000);
+select name,age,salary from employee where post='teacher' and salary not in (10000,9000,30000);
+select name,salary*12 from employee where post='teacher' and name like 'jin%';</code></pre>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h1 id="五-分组查询-GROUP-BY"><a href="#五-分组查询-GROUP-BY" class="headerlink" title="五 分组查询:GROUP BY"></a>五 分组查询:GROUP BY</h1><p>　　<strong>1、 什么是分组？为什么要分组？</strong></p>
+<p>　　　　</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<pre><code>#1、首先明确一点：分组发生在where之后，即分组是基于where之后得到的记录而进行的
+
+#2、分组指的是：将所有记录按照某个相同字段进行归类，比如针对员工信息表的职位分组，或者按照性别进行分组等
+
+#3、为何要分组呢？是因为我们有时候会需要以组为单位来统计一些数据或者进行一些计算的，对不对，比方说下面的几个例子
+    取每个部门的最高工资  
+    取每个部门的员工数
+    取男人数和女人数  
+
+    小窍门：‘每’这个字后面的字段，就是我们分组的依据，只是个小窍门，但是不能表示所有的情况，看上面第三个分组，没有'每'字，这个就需要我们通过语句来自行判断分组依据了
+    我们能用id进行分组吗，能，但是id是不是重复度很低啊，基本没有重复啊，对不对，这样的字段适合做分组的依据吗？不适合，对不对，依据性别分组行不行，当然行，因为性别我们知道，是不是就两种啊，也可能有三种是吧，这个重复度很高，对不对，分组来查的时候才有更好的意义
+　　
+#4、大前提：
+    可以按照任意字段分组，但是分组完毕后，比如group by post，只能查看post字段，如果想查看组内信息，需要借助于聚合函数#注意一点，在查询语句里面select 字段 from 表，这几项是必须要有的，其他的什么where、group by等等都是可有可无的</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　</p>
+<p>　　来，我们来测试一下：</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<pre><code>mysql&gt; select * from employee group by post;
++----+--------+--------+-----+------------+-----------------------------------------+--------------+------------+--------+-----------+
+| id | name   | sex    | age | hire_date  | post                                    | post_comment | salary     | office | depart_id |
++----+--------+--------+-----+------------+-----------------------------------------+--------------+------------+--------+-----------+
+| 14 | 张野   | male   |  28 | 2016-03-11 | operation                               | NULL         |   10000.13 |    403 |         3 |
+|  9 | 歪歪   | female |  48 | 2015-03-11 | sale                                    | NULL         |    3000.13 |    402 |         2 |
+|  2 | alex   | male   |  78 | 2015-03-02 | teacher                                 | NULL         | 1000000.31 |    401 |         1 |
+|  1 | egon   | male   |  18 | 2017-03-01 | 老男孩驻沙河办事处外交大使              | NULL         |    7300.33 |    401 |         1 |
++----+--------+--------+-----+------------+-----------------------------------------+--------------+------------+--------+-----------+
+4 rows in set (0.06 sec)
+
+通过结果可以看出，如果直接通过post部门字段来进行分组，默认拿到的结果都是每组的第一条数据但是你想，我们分组的意义是什么，是不是说通过分组来统计一下整个组的情况啊，不再是看某个人单独的情况了，对不对，并且将来你在这样进行直接分组查询的时候，可能因为你们公司设置的mysql的环境不同，而查不到数据，我们可以看到，我们现在仍然可以查询出来数据，但是如果我们在sql_mode中添加了下面的only_full_group_by这个mode，那么我们在直接分组查询，就无法得到数据了，只能得到字段名并且设置了sql_mode为only_full_group_by之后，select *，就不行了，会直接报错，只能select post ，post是你分组的那个字段</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　<strong>2、 ONLY_FULL_GROUP_BY</strong></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<pre><code>#查看MySQL 5.7默认的sql_mode如下：
+mysql&gt; select @@global.sql_mode;
+ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+
+#！！！注意
+ONLY_FULL_GROUP_BY的语义就是确定select target list中的所有列的值都是明确语义，简单的说来，在ONLY_FULL_GROUP_BY模式下，target list中的值要么是来自于聚集函数的结果，要么是来自于group by list中的表达式的值。
+
+
+#设置sql_mole如下操作(我们可以去掉ONLY_FULL_GROUP_BY模式)：
+mysql&gt; set global sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　　　看一下测试：</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<pre><code>mysql&gt; select @@global.sql_mode;
++-------------------+
+| @@global.sql_mode |
++-------------------+
+|                   |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql&gt; select * from emp group by post; 
++----+------+--------+-----+------------+----------------------------+--------------+------------+--------+-----------+
+| id | name | sex    | age | hire_date  | post                       | post_comment | salary     | office | depart_id |
++----+------+--------+-----+------------+----------------------------+--------------+------------+--------+-----------+
+| 14 | 张野 | male   |  28 | 2016-03-11 | operation                  | NULL         |   10000.13 |    403 |         3 |
+|  9 | 歪歪 | female |  48 | 2015-03-11 | sale                       | NULL         |    3000.13 |    402 |         2 |
+|  2 | alex | male   |  78 | 2015-03-02 | teacher                    | NULL         | 1000000.31 |    401 |         1 |
+|  1 | egon | male   |  18 | 2017-03-01 | 老男孩驻沙河办事处外交大使 | NULL         |    7300.33 |    401 |         1 |
++----+------+--------+-----+------------+----------------------------+--------------+------------+--------+-----------+
+4 rows in set (0.00 sec)
+
+
+#由于没有设置ONLY_FULL_GROUP_BY,于是也可以有结果，默认都是组内的第一条记录，但其实这是没有意义的
+
+mysql&gt; set global sql_mode='ONLY_FULL_GROUP_BY';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; quit #设置成功后，一定要退出，然后重新登录方可生效
+Bye
+
+mysql&gt; use db1;
+Database changed
+mysql&gt; select * from emp group by post; #报错
+ERROR 1055 (42000): 'db1.emp.id' isn't in GROUP BY  #意思是告诉你，你select后面取的字段必须在你的group by后面的字段里面才行
+mysql&gt; select post,count(id) from emp group by post; #只能查看分组依据和使用聚合函数
++----------------------------+-----------+
+| post                       | count(id) |
++----------------------------+-----------+
+| operation                  |         5 |
+| sale                       |         5 |
+| teacher                    |         7 |
+| 老男孩驻沙河办事处外交大使 |         1 |
++----------------------------+-----------+
+4 rows in set (0.00 sec)因为一般分组之后，我们再考虑其中一条数据就没有什么意义了，所以一般我们都会在这种模式下进行分组，下面我们在看看group by，下面的内容</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　<strong>3、 GROUP BY</strong></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<pre><code>单独使用GROUP BY关键字分组
+    SELECT post FROM employee GROUP BY post;
+    注意：我们按照post字段分组，那么select查询的字段只能是post，想要获取组内的其他相关信息，需要借助函数
+
+GROUP BY关键字和GROUP_CONCAT()函数一起使用,比如说我想按部门分组，每个组有哪些员工，都显示出来，怎么搞
+    SELECT post,GROUP_CONCAT(name) FROM employee GROUP BY post;#按照岗位分组，并查看组内所有成员名，通过逗号拼接在一起
+    SELECT post,GROUP_CONCAT(name,':',salary) as emp_members FROM employee GROUP BY post;
+
+GROUP BY一般都会与聚合函数一起使用，聚合是什么意思：聚合就是将分组的数据聚集到一起，合并起来搞事情，拿到一个最后的结果
+    select post,count(id) as count from employee group by post;#按照岗位分组，并查看每个组有多少人，每个人都有唯一的id号，我count是计算一下分组之后每组有多少的id记录，通过这个id记录我就知道每个组有多少人了
+关于集合函数，mysql提供了以下几种聚合函数：count、max、min、avg、sum等，上面的group_concat也算是一个聚合函数了，做字符串拼接的操作</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　　　<strong>强调：</strong></p>
+<pre><code>如果我们用设置了unique约束的字段作为分组的依据，则每一条记录自成一组，这种分组没有意义
+多条记录之间的某个字段值相同，该字段通常用来作为分组的依据</code></pre>
+<p>　　<strong>4、 聚合函数</strong></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<pre><code>#强调：聚合函数聚合的是组的内容，若是没有分组，则默认一组
+
+示例：
+    SELECT COUNT(*) FROM employee;  #count是统计个数用的
+    SELECT COUNT(*) FROM employee WHERE depart_id=1;  #后面跟where条件的意思是统计一下满足depart_id=1这个的所有记录的个数
+    SELECT MAX(salary) FROM employee;  #max（）统计分组后每组的最大值，这里没有写group by，那么就是统计整个表中所有记录中薪资最大的，薪资的值
+    SELECT MIN(salary) FROM employee;
+    SELECT AVG(salary) FROM employee;
+    SELECT SUM(salary) FROM employee;
+    SELECT SUM(salary) FROM employee WHERE depart_id=3;</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　<strong>5、 小练习：</strong></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<pre><code>1. 查询岗位名以及岗位包含的所有员工名字#通过上面的需求来整理逻辑：a、先看一下和哪个表有关系：所有的信息都在employee这个表里面，所以先写from employee，找到表了#                      b、看有没有什么过滤条件，大于小于啊什么的，没有吧，所以是不是不需要写where条件啊#                      c、看看有没有分组的内容，也就是看看上面的需求里面有没有分类的概念，发现是不是有啊，按照岗位来分组，对不对，所以该写什么了：from employee group by post；#                      d、然后再看需要查什么字段出来，发现是不是要看岗位名和所有员工的名字啊，所以怎么写：select post,group_concat(name) from employee group by post;这就是完整语句了，不信你试试
+下面的题都按照上面这个逻辑来搞一搞：2. 查询岗位名以及各岗位内包含的员工个数
+3. 查询公司内男员工和女员工的个数
+4. 查询岗位名以及各岗位的平均薪资
+5. 查询岗位名以及各岗位的最高薪资
+6. 查询岗位名以及各岗位的最低薪资
+7. 查询男员工与男员工的平均薪资，女员工与女员工的平均薪资。 #这道题我们自己提炼一下分组依据，是不是就是性别啊#总结：先from打开文件，然后按照where后面的条件，将硬盘的数据读到内存，内存中的到一张虚拟表，然后按照虚拟表来进行group by分组。group by 必须写在where条件之后，写在where之前会报错，语法规定的#我们说聚合函数是跟着分组来的，你看这样一句话：select max(salary) from employee;直接也是可以使用聚合函数的，因为没有where，那么默认是表中所有的数据，没有group by，默认整个表是一组8.统计各部门年龄在30岁及以上的员工平均薪资#想一下怎么写，1、from 表  2、where age&gt;=30得到一张虚拟表 3、对虚拟表按部门group by  4、select 部门和聚合函数avg#答案：select post,avg(salary) from employee where age&gt;=30 group by post;#看结果：</code></pre>
+<p>​    mysql&gt; select post,avg(salary) from employee where age&gt;=30 group by post;#因为有的部门里面的员工没有大于30岁的，所以没有显示出所有的部门<br>​    +———+—————+<br>​    | post | avg(salary) |<br>​    +———+—————+<br>​    | sale | 2500.240000 |<br>​    | teacher | 255450.077500 |<br>​    +———+—————+<br>​    2 rows in set (0.09 sec)</p>
+<p>到这里我们的group by就讲完了，看一下我们完整查询语句里面还有什么</p>
+<pre><code>SELECT distinct 字段1,字段2... FROM 库名.表名 
+                  WHERE 条件       
+                  GROUP BY field（字段）   
+                  HAVING 筛选      #过滤，过滤之后执行select后面的字段筛选，就是说我要确定一下需要哪个字段的数据，你查询的字段数据进行去重，然后在进行下面的操作
+                  ORDER BY field（字段）   #将结果按照后面的字段进行排序
+                  LIMIT 限制条数 
+注意：虽然语法里面我们先写的select，但是并不是先执行的select，按照mysql自己的规范来执行的下面关键字的优先级
+　　from
+　　where
+　　group by
+　　having
+　　select
+　　distinct
+　　order by
+　　limit</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/ExpandedBlockStart.gif" alt="img"></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<pre><code>#题1：分组
+mysql&gt; select post,group_concat(name) from employee group by post;
++-----------------------------------------+---------------------------------------------------------+
+| post                                    | group_concat(name)                                      |
++-----------------------------------------+---------------------------------------------------------+
+| operation                               | 张野,程咬金,程咬银,程咬铜,程咬铁                        |
+| sale                                    | 歪歪,丫丫,丁丁,星星,格格                                |
+| teacher                                 | alex,wupeiqi,yuanhao,liwenzhou,jingliyang,jinxin,成龙   |
+| 老男孩驻沙河办事处外交大使              | egon                                                    |
++-----------------------------------------+---------------------------------------------------------+
+
+
+#题目2：
+mysql&gt; select post,count(id) from employee group by post;
++-----------------------------------------+-----------+
+| post                                    | count(id) |
++-----------------------------------------+-----------+
+| operation                               |         5 |
+| sale                                    |         5 |
+| teacher                                 |         7 |
+| 老男孩驻沙河办事处外交大使              |         1 |
++-----------------------------------------+-----------+
+
+
+#题目3：
+mysql&gt; select sex,count(id) from employee group by sex;
++--------+-----------+
+| sex    | count(id) |
++--------+-----------+
+| male   |        10 |
+| female |         8 |
++--------+-----------+
+
+#题目4：
+mysql&gt; select post,avg(salary) from employee group by post;
++-----------------------------------------+---------------+
+| post                                    | avg(salary)   |
++-----------------------------------------+---------------+
+| operation                               |  16800.026000 |
+| sale                                    |   2600.294000 |
+| teacher                                 | 151842.901429 |
+| 老男孩驻沙河办事处外交大使              |   7300.330000 |
++-----------------------------------------+---------------+
+
+#题目5
+mysql&gt; select post,max(salary) from employee group by post;
++-----------------------------------------+-------------+
+| post                                    | max(salary) |
++-----------------------------------------+-------------+
+| operation                               |    20000.00 |
+| sale                                    |     4000.33 |
+| teacher                                 |  1000000.31 |
+| 老男孩驻沙河办事处外交大使              |     7300.33 |
++-----------------------------------------+-------------+
+
+#题目6
+mysql&gt; select post,min(salary) from employee group by post;
++-----------------------------------------+-------------+
+| post                                    | min(salary) |
++-----------------------------------------+-------------+
+| operation                               |    10000.13 |
+| sale                                    |     1000.37 |
+| teacher                                 |     2100.00 |
+| 老男孩驻沙河办事处外交大使              |     7300.33 |
++-----------------------------------------+-------------+
+
+#题目七
+mysql&gt; select sex,avg(salary) from employee group by sex;
++--------+---------------+
+| sex    | avg(salary)   |
++--------+---------------+
+| male   | 110920.077000 |
+| female |   7250.183750 |
++--------+---------------+</code></pre>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h1 id="六-HAVING过滤"><a href="#六-HAVING过滤" class="headerlink" title="六 HAVING过滤"></a>六 HAVING过滤</h1><p>　　<strong>讲having之前，我们补充一个点：之前我们写的查询语句是这样的：select id,name from employee;实际上我们在select每个字段的时候，省略了一个表名，有的人可能会这样写，select employee.id,employee.name from employee;你会发现查询出来的结果是一样的，但是如果你要将查询出来的结果表，起一个新表名的话，带着表名这样写就错了</strong></p>
+<p>　　<strong>select employee.id,employee.name from employee as tb1;这样执行会下面的报错：</strong></p>
+<p>　　　　mysql&gt; select employee.id,employee.name from employee as tb1;<br>　　　　ERROR 1054 (42S22): Unknown column ‘employee.id’ in ‘field list’</p>
+<p>　　<strong>因为这个语句先执行的是谁啊，是不是我们的from啊，那么后面的as也是比select要先执行的，所以你先将表employee起了个新名字叫做tb1，然后在tb1里面取查询数据，那么tb1里面找不到employee.id这个字段，就会报错，如果我们查询的时候不带表名，你as来起一个新的表名也是没问题的，简单提一下这个内容，知道就好了</strong></p>
+<p>　　</p>
+<p><strong>HAVING与WHERE不一样的地方在于!!!!!!</strong></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<pre><code>having的语法格式和where是一模一样的，只不过having是在分组之后进行的进一步的过滤，where不能使用聚合函数，having是可以使用聚合函数的#！！！执行优先级从高到低：where &gt; group by &gt; having 
+#1. Where 发生在分组group by之前，因而Where中可以有任意字段，但是绝对不能使用聚合函数。
+
+#2. Having发生在分组group by之后，因而Having中可以使用分组的字段，无法直接取到其他字段,having是可以使用聚合函数</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　having简单测试：</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<pre><code>#来个需求：统计各部门年龄在30岁及以上的员工的平均薪资，并且保留平均工资大于10000的部门答案：select post,avg(salary) as new_sa from employee where age&gt;=30 group by post having avg(salary) &gt; 10000;看结果：</code></pre>
+<p>　　+———+—————+<br>　　| post | new_sa |<br>　　+———+—————+<br>　　| teacher | 255450.077500 |<br>　　+———+—————+<br>　　1 row in set (0.00 sec)</p>
+<pre><code>然后我们看这样一句话：select * from employee having avg(salary) &gt; 10000;只要一运行就会报错：</code></pre>
+<p>　　　　mysql&gt; select * from employee having avg(salary) &gt; 10000;<br>　　　　ERROR 1140 (42000): Mixing of GROUP columns (MIN(),MAX(),COUNT(),…) with no GROUP columns is illegal if there is no GROUP BY clause</p>
+<pre><code>是因为having只能在group by后面运行</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　小练习：</p>
+<pre><code>1. 查询各岗位内包含的员工个数小于2的岗位名、岗位内包含员工名字、个数
+3. 查询各岗位平均薪资大于10000的岗位名、平均工资
+4. 查询各岗位平均薪资大于10000且小于20000的岗位名、平均工资</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/ExpandedBlockStart.gif" alt="img"></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<pre><code>#题1：
+mysql&gt; select post,group_concat(name),count(id) from employee group by post having count(id) &lt; 2;
++-----------------------------------------+--------------------+-----------+
+| post                                    | group_concat(name) | count(id) |
++-----------------------------------------+--------------------+-----------+
+| 老男孩驻沙河办事处外交大使              | egon               |         1 |
++-----------------------------------------+--------------------+-----------+
+
+#题目2：
+mysql&gt; select post,avg(salary) from employee group by post having avg(salary) &gt; 10000;
++-----------+---------------+
+| post      | avg(salary)   |
++-----------+---------------+
+| operation |  16800.026000 |
+| teacher   | 151842.901429 |
++-----------+---------------+
+
+#题目3：
+mysql&gt; select post,avg(salary) from employee group by post having avg(salary) &gt; 10000 and avg(salary) &lt;20000;
++-----------+--------------+
+| post      | avg(salary)  |
++-----------+--------------+
+| operation | 16800.026000 |
++-----------+--------------+</code></pre>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　<strong>说一下去重：distinct</strong> </p>
+<p>　　　　将查询的结果进行去重：select distinct post from employee; 注意distinct去重要写在查询字段的前面，不然会报错，关于distinct使用时的其他问题看下面的总结</p>
+<p><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/ExpandedBlockStart.gif" alt="img"></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<pre><code>有时需要查询出某个字段不重复的记录，这时可以使用mysql提供的distinct这个关键字来过滤重复的记录，但是实际中我们往往用distinct来返回不重复字段的条数（count(distinct id)）,其原因是distinct只能返回他的目标字段，而无法返回其他字段，distinct 想写在其他字段后面需要配合聚合函数来写。
+
+mysql&gt; select id,count(distinct post) from employee;
+ERROR 1140 (42000): Mixing of GROUP columns (MIN(),MAX(),COUNT(),...) with no GROUP columns is illegal if there is no GROUP BY clause
+报错了：是因为distinct不能返回其他的字段，只能返回目标字段
+mysql&gt; select count(distinct post) from employee;
++----------------------+
+| count(distinct post) |
++----------------------+
+|                    4 |
++----------------------+
+1 row in set (0.00 sec)</code></pre>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　说完去重，我们看一下order by，排序</p>
+<h1 id="七-查询排序-ORDER-BY"><a href="#七-查询排序-ORDER-BY" class="headerlink" title="七 查询排序:ORDER BY"></a>七 查询排序:ORDER BY</h1><p>　　</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<pre><code>按单列排序
+    SELECT * FROM employee ORDER BY salary; #默认是升序排列
+    SELECT * FROM employee ORDER BY salary ASC; #升序
+    SELECT * FROM employee ORDER BY salary DESC; #降序
+
+但是你看，如果我们按照age来排序，你看看是什么效果：
+mysql&gt; SELECT * FROM employee ORDER BY age;
++----+------------+--------+-----+------------+-----------------------------------------+--------------+------------+--------+-----------+
+| id | name | sex | age | hire_date | post | post_comment | salary | office | depart_id |
++----+------------+--------+-----+------------+-----------------------------------------+--------------+------------+--------+-----------+
+| 1 | egon | male | 18 | 2017-03-01 | 老男孩驻沙河办事处外交大使 | NULL | 7300.33 | 401 | 1 |
+| 17 | 程咬铜 | male | 18 | 2015-04-11 | operation | NULL | 18000.00 | 403 | 3 |
+| 16 | 程咬银 | female | 18 | 2013-03-11 | operation | NULL | 19000.00 | 403 | 3 |
+| 15 | 程咬金 | male | 18 | 1997-03-12 | operation | NULL | 20000.00 | 403 | 3 |
+| 12 | 星星 | female | 18 | 2016-05-13 | sale | NULL | 3000.29 | 402 | 2 |
+| 11 | 丁丁 | female | 18 | 2011-03-12 | sale | NULL | 1000.37 | 402 | 2 |
+| 18 | 程咬铁 | female | 18 | 2014-05-12 | operation | NULL | 17000.00 | 403 | 3 |
+| 7 | jinxin | male | 18 | 1900-03-01 | teacher | NULL | 30000.00 | 401 | 1 |
+| 6 | jingliyang | female | 18 | 2011-02-11 | teacher | NULL | 9000.00 | 401 | 1 |
+| 13 | 格格 | female | 28 | 2017-01-27 | sale | NULL | 4000.33 | 402 | 2 |
+| 14 | 张野 | male | 28 | 2016-03-11 | operation | NULL | 10000.13 | 403 | 3 |
+| 5 | liwenzhou | male | 28 | 2012-11-01 | teacher | NULL | 2100.00 | 401 | 1 |
+| 10 | 丫丫 | female | 38 | 2010-11-01 | sale | NULL | 2000.35 | 402 | 2 |
+| 9 | 歪歪 | female | 48 | 2015-03-11 | sale | NULL | 3000.13 | 402 | 2 |
+| 8 | 成龙 | male | 48 | 2010-11-11 | teacher | NULL | 10000.00 | 401 | 1 |
+| 4 | yuanhao | male | 73 | 2014-07-01 | teacher | NULL | 3500.00 | 401 | 1 |
+| 2 | alex | male | 78 | 2015-03-02 | teacher | NULL | 1000000.31 | 401 | 1 |
+| 3 | wupeiqi | male | 81 | 2013-03-05 | teacher | NULL | 8300.00 | 401 | 1 |
++----+------------+--------+-----+------------+-----------------------------------------+--------------+------------+--------+-----------+
+
+  发现什么，按照年龄来升序排的，没问题，但是你看年龄相同的那些按什么排的，是不是看着是乱的啊，但是不管它对这种相同数据的内容怎么排序，我们是不是想如果出现相同的数据，那么这些相同的数据也按照一个依据来排列啊：
+
+  所以我们可以给相同的这些数据指定一个排序的依据，看下面：
+按多列排序:先按照age升序，如果年纪相同，则按照薪资降序
+    SELECT * from employee
+        ORDER BY age, #注意排序的条件用逗号分隔
+        salary DESC;</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　小练习：</p>
+<pre><code>1. 查询所有员工信息，先按照age升序排序，如果age相同则按照hire_date降序排序
+2. 查询各岗位平均薪资大于10000的岗位名、平均工资,结果按平均薪资升序排列
+3. 查询各岗位平均薪资大于10000的岗位名、平均工资,结果按平均薪资降序排列</code></pre>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<pre><code>#题目1
+mysql&gt; select * from employee ORDER BY age asc,hire_date desc;
+
+#题目2 
+mysql&gt; select post,avg(salary) from employee group by post having avg(salary) &gt; 10000 order by avg(salary) asc;
+#注意：查询语句的语法是固定上面这样写的，但是运行顺序是这样的：1、from  2、where  3、group by  4、having  5、select  6、distinct 7、order by  8、limit，我们下面要学的
++-----------+---------------+
+| post      | avg(salary)   |
++-----------+---------------+
+| operation |  16800.026000 |
+| teacher   | 151842.901429 |
++-----------+---------------+
+
+#题目3
+mysql&gt; select post,avg(salary) from employee group by post having avg(salary) &gt; 10000 order by avg(salary) desc;
++-----------+---------------+
+| post      | avg(salary)   |
++-----------+---------------+
+| teacher   | 151842.901429 |
+| operation |  16800.026000 |
++-----------+---------------+</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h1 id="八-限制查询的记录数-LIMIT"><a href="#八-限制查询的记录数-LIMIT" class="headerlink" title="八 限制查询的记录数:LIMIT"></a>八 限制查询的记录数:LIMIT</h1><p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<pre><code>示例：　　#取出工资最高的前三位
+    SELECT * FROM employee ORDER BY salary DESC 
+        LIMIT 3;                    #默认初始位置为0,从第一条开始顺序取出三条 
+
+    SELECT * FROM employee ORDER BY salary DESC
+        LIMIT 0,5; #从第0开始，即先查询出第一条，然后包含这一条在内往后查5条 
+
+    SELECT * FROM employee ORDER BY salary DESC
+        LIMIT 5,5; #从第5开始，即先查询出第6条，然后包含这一条在内往后查5条</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　小练习：分页显示，每页显示5条。我们工作中经常会涉及到数据分页显示，因为数据量很大的时候，加入上10w条数据，我们是不是要分开给用户显示啊，要不然页面上都显示不过来，即便是显示过来了，用户看着是不是也很不爽啊，要一直往下面滚轮，对不对，用户体验不好，所以你会发现有好多的网站都可以看到一个分页的功能。</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<pre><code>mysql&gt; select * from  employee limit 0,5;
++----+-----------+------+-----+------------+-----------------------------------------+--------------+------------+--------+-----------+
+| id | name      | sex  | age | hire_date  | post                                    | post_comment | salary     | office | depart_id |
++----+-----------+------+-----+------------+-----------------------------------------+--------------+------------+--------+-----------+
+|  1 | egon      | male |  18 | 2017-03-01 | 老男孩驻沙河办事处外交大使              | NULL         |    7300.33 |    401 |         1 |
+|  2 | alex      | male |  78 | 2015-03-02 | teacher                                 |              | 1000000.31 |    401 |         1 |
+|  3 | wupeiqi   | male |  81 | 2013-03-05 | teacher                                 | NULL         |    8300.00 |    401 |         1 |
+|  4 | yuanhao   | male |  73 | 2014-07-01 | teacher                                 | NULL         |    3500.00 |    401 |         1 |
+|  5 | liwenzhou | male |  28 | 2012-11-01 | teacher                                 | NULL         |    2100.00 |    401 |         1 |
++----+-----------+------+-----+------------+-----------------------------------------+--------------+------------+--------+-----------+
+5 rows in set (0.00 sec)
+
+mysql&gt; select * from  employee limit 5,5;
++----+------------+--------+-----+------------+---------+--------------+----------+--------+-----------+
+| id | name       | sex    | age | hire_date  | post    | post_comment | salary   | office | depart_id |
++----+------------+--------+-----+------------+---------+--------------+----------+--------+-----------+
+|  6 | jingliyang | female |  18 | 2011-02-11 | teacher | NULL         |  9000.00 |    401 |         1 |
+|  7 | jinxin     | male   |  18 | 1900-03-01 | teacher | NULL         | 30000.00 |    401 |         1 |
+|  8 | 成龙       | male   |  48 | 2010-11-11 | teacher | NULL         | 10000.00 |    401 |         1 |
+|  9 | 歪歪       | female |  48 | 2015-03-11 | sale    | NULL         |  3000.13 |    402 |         2 |
+| 10 | 丫丫       | female |  38 | 2010-11-01 | sale    | NULL         |  2000.35 |    402 |         2 |
++----+------------+--------+-----+------------+---------+--------------+----------+--------+-----------+
+5 rows in set (0.00 sec)
+
+mysql&gt; select * from  employee limit 10,5;
++----+-----------+--------+-----+------------+-----------+--------------+----------+--------+-----------+
+| id | name      | sex    | age | hire_date  | post      | post_comment | salary   | office | depart_id |
++----+-----------+--------+-----+------------+-----------+--------------+----------+--------+-----------+
+| 11 | 丁丁      | female |  18 | 2011-03-12 | sale      | NULL         |  1000.37 |    402 |         2 |
+| 12 | 星星      | female |  18 | 2016-05-13 | sale      | NULL         |  3000.29 |    402 |         2 |
+| 13 | 格格      | female |  28 | 2017-01-27 | sale      | NULL         |  4000.33 |    402 |         2 |
+| 14 | 张野      | male   |  28 | 2016-03-11 | operation | NULL         | 10000.13 |    403 |         3 |
+| 15 | 程咬金    | male   |  18 | 1997-03-12 | operation | NULL         | 20000.00 |    403 |         3 |
++----+-----------+--------+-----+------------+-----------+--------------+----------+--------+-----------+
+5 rows in set (0.00 sec)到最后不够五条了怎么办，完全不影响，接着写</code></pre>
+<p>  mysql&gt; select * from employee limit 15,5;<br>  +—-+———–+——–+—–+————+———–+————–+———-+——–+———–+<br>  | id | name | sex | age | hire_date | post | post_comment | salary | office | depart_id |<br>  +—-+———–+——–+—–+————+———–+————–+———-+——–+———–+<br>  | 16 | 程咬银 | female | 18 | 2013-03-11 | operation | NULL | 19000.00 | 403 | 3 |<br>  | 17 | 程咬铜 | male | 18 | 2015-04-11 | operation | NULL | 18000.00 | 403 | 3 |<br>  | 18 | 程咬铁 | female | 18 | 2014-05-12 | operation | NULL | 17000.00 | 403 | 3 |<br>  +—-+———–+——–+—–+————+———–+————–+———-+——–+———–+<br>  3 rows in set (0.00 sec)</p>
+<p>#到目前为止，单表查询所有的语法都讲完了，语法就是按照我们博客最上面说的语法顺序来写，但是执行的时候，要按照对应的各个方法的优先级去执行。</p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<h1 id="九-使用正则表达式查询"><a href="#九-使用正则表达式查询" class="headerlink" title="九 使用正则表达式查询"></a>九 使用正则表达式查询</h1><p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<pre><code>#之前我们用like做模糊匹配，只有%和_，局限性比较强，所以我们说一个正则，之前我们是不是学过正则匹配，你之前学的正则表达式都可以用，正则是通用的SELECT * FROM employee WHERE name REGEXP '^ale';
+
+SELECT * FROM employee WHERE name REGEXP 'on$';
+
+SELECT * FROM employee WHERE name REGEXP 'm{2}';
+
+
+小结：对字符串匹配的方式
+WHERE name = 'egon';
+WHERE name LIKE 'yua%';
+WHERE name REGEXP 'on$';</code></pre>
+<p><a href="javascript:void(0);"><img src="https://cdn.jsdelivr.net/gh/1420566605wl/new_cdn@1.05/sjk/copycode.gif" alt="复制代码"></a></p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>　　小练习：</p>
+<pre><code>查看所有员工中名字是jin开头，n或者g结果的员工信息
+select * from employee where name regexp '^jin.*[g|n]$';</code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">学习</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                                    <span class="chip bg-color">技术</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/11/15/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E4%B9%8B%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="MySQL之多表查询">
+                        
+                        <span class="card-title">MySQL之多表查询</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Wlcc___
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">技术</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/11/15/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E4%B9%8B%E8%A7%86%E5%9B%BE%E3%80%81%E8%A7%A6%E5%8F%91%E5%99%A8%E3%80%81%E4%BA%8B%E5%8A%A1%E3%80%81%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E3%80%81%E5%87%BD%E6%95%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="MySQL之视图、触发器、事务、存储过程、函数">
+                        
+                        <span class="card-title">MySQL之视图、触发器、事务、存储过程、函数</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Wlcc___
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">技术</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            wl
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "6";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/1420566605wl" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1420566605@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1420566605" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1420566605" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
